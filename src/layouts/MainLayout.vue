@@ -3,7 +3,7 @@ q-layout(view="lHh Lpr lFf")
   q-header.headerBar
     q-toolbar.bg-white.text-black
       q-avatar.q-ml-lg
-        img(src="src/assets/img/headerBarLogo.png")
+        img(:src="logo")
       
       q-space
       q-tabs.headerBarTabs.q-mr-lg(shrink no-caps)
@@ -17,11 +17,14 @@ q-layout(view="lHh Lpr lFf")
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import logo from 'src/assets/img/headerBarLogo.png';
 
 export default defineComponent({
   name: 'MainLayout',
   setup() {
-    return {};
+    return {
+      logo,
+    };
   },
 });
 </script>
