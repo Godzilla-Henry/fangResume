@@ -1,9 +1,9 @@
 <template lang="pug">
 q-layout(view="lHh Lpr lFf")
   q-header.headerBar
-    q-toolbar.bg-white.text-black
-      q-avatar.q-ml-lg
-        img(:src="logo")
+    q-toolbar.bg-white.text-black.fit
+      .q-ml-lg.row.items-center
+        img.logo(:src="logo")
       
       q-space
       q-tabs.headerBarTabs.q-mr-lg(shrink no-caps)
@@ -33,10 +33,14 @@ export default defineComponent({
 .headerBar {
   //- shadow: x, y, blur, color
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  height: 65px;
+  .logo {
+    height: 47px;
+  }
   .headerBarTabs {
     color: #515151;
     .tabItem {
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 400;
     }
   }
