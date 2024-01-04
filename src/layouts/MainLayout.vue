@@ -1,12 +1,12 @@
 <template lang="pug">
 q-layout(view="lHh Lpr lFf")
   q-header.headerBar
-    q-toolbar.bg-white.text-black.fit
+    q-toolbar.text-black.fit
       .q-ml-lg.row.items-center
         img.logo(:src="logo")
       
       q-space
-      q-tabs.headerBarTabs.q-mr-lg(shrink no-caps)
+      q-tabs.headerBarTabs.q-mr-xl(shrink no-caps)
         q-tab.tabItem(name="uiux") UI/UX
         q-tab.tabItem(name="visualDesign") Visual Design
         q-tab.tabItem(name="afterHour") After Hour
@@ -31,6 +31,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .headerBar {
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(3px);
   //- shadow: x, y, blur, color
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
   height: 65px;
