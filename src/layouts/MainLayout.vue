@@ -32,7 +32,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .headerBar {
   background-color: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(10px);
   //- shadow: x, y, blur, color
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
   height: 65px;

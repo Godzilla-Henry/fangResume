@@ -1,12 +1,25 @@
+@use 'src/assets/css/rwd.scss' as rwd;
 .page {
   .section {
-    padding: 35px 85px;
+    width: 1440px;
+    margin: auto;
+    padding: 35px 120px;
     // border: 1px solid grey;
+    @include rwd.md {
+      width: 1024px;
+    }
+    @include rwd.sm {
+      width: 600px;
+    }
+    @include rwd.xs {
+      width: 375px;
+    }
   }
 
   .page-title-1 {
     color: #e87c05;
     font-weight: 600;
     font-size: 18px;
+    margin-bottom: 16px;
   }
 }
