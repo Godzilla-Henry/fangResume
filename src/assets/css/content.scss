@@ -3,16 +3,22 @@
   .section {
     width: 1440px;
     margin: auto;
-    padding: 35px 120px;
+    padding: 35px 8%;
     // border: 1px solid grey;
     @include rwd.md {
-      width: 1024px;
+      width: 80%;
+      min-width: 1024px;
+      padding: 35px 8%;
     }
     @include rwd.sm {
-      width: 600px;
+      width: 80%;
+      min-width: 600px;
+      padding: 35px 8%;
     }
     @include rwd.xs {
-      width: 375px;
+      width: 80%;
+      min-width: 375px;
+      padding: 35px 8%;
     }
   }
 
