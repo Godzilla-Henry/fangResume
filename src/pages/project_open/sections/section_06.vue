@@ -51,16 +51,37 @@ export default defineComponent({
     .tri {
       width: 0;
       height: 0;
-      border: 10px solid;
+      border-style: solid;
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
+      z-index: 10;
+      &::before {
+        content: '';
+        border-style: solid;
+        position: absolute;
+        bottom: -8px;
+        z-index: -10;
+      }
       &.right {
+        left: 9px;
+        border-width: 10px 10px 10px 0px;
         border-color: transparent #d9d9d9 transparent transparent;
+        &::before {
+          left: 2px;
+          border-width: 8px 8px 8px 0px;
+          border-color: transparent #ececec transparent transparent;
+        }
       }
       &.left {
+        left: calc(100% - 1px);
+        border-width: 10px 0 10px 10px;
         border-color: transparent transparent transparent #d9d9d9;
-        right: -20px;
+        &::before {
+          left: -10px;
+          border-width: 8px 0 8px 8px;
+          border-color: transparent transparent transparent #ececec;
+        }
       }
     }
     .rect {
