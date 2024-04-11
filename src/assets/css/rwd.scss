@@ -1,3 +1,4 @@
+//- 以寬度定義斷點
 // xs 0-600px
 @mixin xs {
   @media only screen and (max-width: 599.99px) {
@@ -19,6 +20,25 @@
 // lg 1440-1920px
 @mixin lg {
   @media (min-width: 1440px) and (max-width: 1919.99px) {
+    @content;
+  }
+}
+
+//- 以裝置定義斷點
+@mixin small {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @media (min-width: 600px) and (max-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: 1920px) {
     @content;
   }
 }

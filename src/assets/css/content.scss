@@ -1,31 +1,14 @@
 @use 'src/assets/css/rwd.scss' as rwd;
+//- 頁面定義
 .page {
+  position: relative;
+  //- 超過1920置中顯示
   .section {
-    width: 1440px;
+    max-width: 1920px;
     margin: auto;
-    padding: 35px 8%;
-    // border: 1px solid grey;
-    @include rwd.md {
-      width: 80%;
-      min-width: 1024px;
-      padding: 35px 8%;
-    }
-    @include rwd.sm {
-      width: 80%;
-      min-width: 600px;
-      padding: 35px 8%;
-    }
-    @include rwd.xs {
-      width: 80%;
-      min-width: 375px;
-      padding: 35px 8%;
-    }
   }
-
-  .page-title-1 {
-    color: #e87c05;
-    font-weight: 600;
-    font-size: 18px;
-    margin-bottom: 16px;
-  }
+}
+//- 背景透明
+.bg-transparent {
+  background-color: transparent !important;
 }

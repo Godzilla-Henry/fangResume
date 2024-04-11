@@ -4,8 +4,24 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
+    redirect: '/uiux',
     children: [
-      { path: '', component: () => import('pages/project_open/index.vue') },
+      {
+        path: '/uiux',
+        component: () => import('pages/uiux/index.vue'),
+      },
+      {
+        path: '/visualDesign',
+        component: () => import('pages/visualDesign/index.vue'),
+      },
+      {
+        path: '/afterHour',
+        component: () => import('pages/afterHour/index.vue'),
+      },
+      {
+        path: '/about',
+        component: () => import('pages/about/index.vue'),
+      },
     ],
   },
 

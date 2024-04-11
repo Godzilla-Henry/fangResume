@@ -6,7 +6,10 @@ q-layout(view="lHh Lpr lFf")
         img.logo(:src="logo")
       
       q-space
-      q-tabs.headerBarTabs.q-mr-xl(shrink no-caps)
+      q-tabs.headerBarTabs.q-mr-xl(
+        v-model="curTab"
+        shrink no-caps
+      )
         q-tab.tabItem(name="uiux") UI/UX
         q-tab.tabItem(name="visualDesign") Visual Design
         q-tab.tabItem(name="afterHour") After Hour
@@ -16,13 +19,24 @@ q-layout(view="lHh Lpr lFf")
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, watch } from 'vue';
 import logo from 'src/assets/img/headerBarLogo.png';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'MainLayout',
   setup() {
+    const router = useRouter();
+    const curTab = ref('uiux');
+    watch(
+      () => curTab.value,
+      (val) => {
+        console.log(val);
+        router.push({ path: '/' + val });
+      }
+    );
     return {
+      curTab,
       logo,
     };
   },
