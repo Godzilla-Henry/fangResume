@@ -10,10 +10,10 @@ q-layout(view="lHh Lpr lFf")
         v-model="curTab"
         shrink no-caps
       )
-        q-tab.tabItem(name="uiux") UI/UX
-        q-tab.tabItem(name="visualDesign") Visual Design
-        q-tab.tabItem(name="afterHour") After Hour
-        q-tab.tabItem(name="about") About
+        q-tab.tabItem(name="uiux" @click="gotoPage('uiux')") UI/UX
+        q-tab.tabItem(name="visualDesign" @click="gotoPage('visualDesign')") Visual Design
+        q-tab.tabItem(name="afterHour" @click="gotoPage('afterHour')") After Hour
+        q-tab.tabItem(name="about" @click="gotoPage('about')") About
   q-page-container
     router-view
 </template>
@@ -27,17 +27,16 @@ export default defineComponent({
   name: 'MainLayout',
   setup() {
     const router = useRouter();
-    const curTab = ref('uiux');
-    watch(
-      () => curTab.value,
-      (val) => {
-        console.log(val);
-        router.push({ path: '/' + val });
-      }
-    );
+    const curTab = ref<string>('uiux');
+
+    const gotoPage = (val: string) => {
+      curTab.value = val;
+      router.push({ path: '/' + val });
+    };
     return {
-      curTab,
       logo,
+      curTab,
+      gotoPage,
     };
   },
 });

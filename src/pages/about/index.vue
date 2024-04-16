@@ -6,10 +6,8 @@
         div.img-container
           q-img.img(
             :src="imgUrl"
-            spinner-color="white"
+            spinner-color="#6D6D6D"
           )
-          .intro01(data-storke="About") About
-          .intro02 Me
       .col-12.col-lg-7
         .content
           .line
@@ -24,36 +22,24 @@
             | xlingfun@gmail.com
   .banner-divider
     q-img.img(
-      :src="bannerDivider"
-      spinner-color="white"
+      :src="line"
+      spinner-color="#6D6D6D"
     )
 </template>
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue';
-import { useWindowSize } from '@vueuse/core';
 //- img
-import profile from 'src/assets/fangImg/aboutMe/profile.png';
-import profile01 from 'src/assets/fangImg/aboutMe/profile01.png';
-import bannerDivider from 'src/assets/fangImg/aboutMe/line.png';
+import banner01 from 'src/assets/fangImg/aboutMe/banner01.png';
+import line from 'src/assets/fangImg/aboutMe/line.png';
 
 export default defineComponent({
   setup() {
-    const { width } = useWindowSize();
-
-    const imgUrl = ref();
-    watch(
-      () => width.value,
-      (val: number) => {
-        if (val > 1440) imgUrl.value = profile;
-        else if (val <= 1440) imgUrl.value = profile01;
-      },
-      { immediate: true }
-    );
+    const imgUrl = ref(banner01);
 
     return {
       imgUrl,
-      bannerDivider,
+      line,
     };
   },
 });
@@ -107,77 +93,18 @@ export default defineComponent({
     }
   }
   .img-container {
-    position: relative;
     display: flex;
     justify-content: center;
-    @media (min-width: 1440px) and (max-width: 1920px) {
-      top: calc(50px * (100vw * (1440 / 1920) / 1920px));
-    }
+    align-items: center;
     .img {
-      width: 100%;
+      max-width: 500px;
       position: relative;
-      margin-top: 2vw;
-      border-radius: 273px;
-      z-index: -2;
+      margin-top: 7vw;
       @include rwd.large {
-        width: 500px;
-        margin-top: 75px;
+        margin-top: 135px;
       }
-      @media (min-width: 1440px) and (max-width: 1920px) {
-        width: 500px;
-      }
-      @media (max-width: 1440px) {
-        border-radius: 0px;
-        max-width: 500px;
-      }
-    }
-    .intro01 {
-      color: #fff;
-      font-weight: 600;
-      font-style: italic;
-      letter-spacing: 6px;
-      position: absolute;
-      top: 90px;
-      left: 100px;
-      z-index: 2;
-      &::before {
-        content: attr(data-storke);
-        position: absolute;
-        z-index: -1;
-        -webkit-text-stroke: 2px #a3a3a3;
-        text-stroke: 2px #a3a3a3;
-      }
-      @include rwd.large {
-        font-size: 130px;
-      }
-      @media (min-width: 1440px) and (max-width: 1920px) {
-        top: calc(120px * (100vw * (1440 / 1920) / 1920px));
-        left: calc(120px * (100vw * (1440 / 1920) / 1920px));
-        font-size: calc(170px * (100vw * (1440 / 1920) / 1920px));
-      }
-      @media (max-width: 1440px) {
-        display: none;
-      }
-    }
-    .intro02 {
-      color: #7d7d7d;
-      font-weight: 600;
-      font-style: italic;
-      letter-spacing: 6px;
-      position: absolute;
-      top: 90px;
-      left: 535px;
-      z-index: 2;
-      @include rwd.large {
-        font-size: 130px;
-      }
-      @media (min-width: 1440px) and (max-width: 1920px) {
-        top: calc(120px * (100vw * (1440 / 1920) / 1920px));
-        left: calc(700px * (100vw * (1440 / 1920) / 1920px));
-        font-size: calc(170px * (100vw * (1440 / 1920) / 1920px));
-      }
-      @media (max-width: 1440px) {
-        display: none;
+      @include rwd.medium {
+        width: calc(100vw * (1440 / 1920));
       }
     }
   }
