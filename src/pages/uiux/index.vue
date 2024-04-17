@@ -44,14 +44,16 @@ export default defineComponent({
   position: relative;
   .img {
     width: 100%;
-    position: relative;
+    position: absolute;
     margin-top: 7vw;
     @include rwd.large {
       max-width: 1440px;
+      left: -60px;
       margin-top: 135px;
     }
     @include rwd.medium {
       width: calc(100vw * (1440 / 1920));
+      left: calc(100vw * (-60 / 1920));
     }
   }
 }
