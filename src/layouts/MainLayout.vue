@@ -1,5 +1,5 @@
 <template lang="pug">
-q-layout(view="lHh Lpr lFf")
+q-layout(view="lHh Lpr lff")
   q-header.headerBar
     q-toolbar.text-black.fit
       .q-ml-lg.row.items-center
@@ -16,6 +16,14 @@ q-layout(view="lHh Lpr lFf")
         q-tab.tabItem(name="about" @click="gotoPage('about')") About
   q-page-container
     router-view
+  .page
+    .section.footerBar.content-padding
+      .fit
+        .footer-line
+        .footer-title Thanks for stopping by !
+        .copy-right.text-center   
+          .copy-right-title Design - Fang｜Build - Henry
+          .copy-right-subtitle  © 2024 
 </template>
 
 <script lang="ts">
@@ -58,6 +66,29 @@ export default defineComponent({
       font-size: 15px;
       font-weight: 400;
     }
+  }
+}
+.footerBar {
+  background-color: transparent;
+  .footer-line {
+    width: 100%;
+    height: 0px;
+    border-top: 1px solid #a1a1a1;
+  }
+  .footer-title {
+    color: #3c3c3c;
+    font-family: 'Yeseva One';
+    font-size: 26px;
+    font-weight: 800;
+    margin: 20px 0 30px 0;
+  }
+  .copy-right {
+    width: 100%;
+    color: #323232;
+    font-family: 'Yeseva One';
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
   }
 }
 </style>
