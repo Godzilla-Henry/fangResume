@@ -1,12 +1,12 @@
 <template lang="pug">
 q-layout(view="lHh Lpr lff")
   q-header.headerBar
-    q-toolbar.text-black.fit
-      .q-ml-lg.row.items-center
+    q-toolbar.text-black.fit.content-padding 
+      .row.items-center
         img.logo(:src="logo")
       
       q-space
-      q-tabs.headerBarTabs.q-mr-xl(
+      q-tabs.headerBarTabs(
         v-model="curTab"
         shrink no-caps
       )
