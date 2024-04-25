@@ -1,4 +1,4 @@
-//- 以寬度定義斷點
+//- quarsar 斷點定義
 // xs 0-600px
 @mixin xs {
   @media only screen and (max-width: 599.99px) {
@@ -32,13 +32,13 @@
 }
 
 @mixin medium {
-  @media (min-width: 600px) and (max-width: 1920px) {
+  @media (min-width: 600px) and (max-width: 1440px) {
     @content;
   }
 }
 
 @mixin large {
-  @media (min-width: 1920px) {
+  @media (min-width: 1440px) {
     @content;
   }
 }

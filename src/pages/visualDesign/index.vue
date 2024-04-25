@@ -7,8 +7,8 @@
         spinner-color="#6D6D6D"
       )
   .section.content-padding.last-section
-    .row
-      .col-12.col-lg-4.col-md-6(
+    .row.q-col-gutter-xl.card-list
+      .col-12.col-md-4.col-sm-6(
         v-for="item in cardList"
         :key="item.title"
       )
@@ -17,7 +17,7 @@
             :src="item.img"
             spinner-color="#6D6D6D"
           )
-          .row.items-center.q-mt-md
+          .row.items-center.describe
             .tag.q-mr-lg {{ item.tag }}
             .title {{ item.title }}
           
@@ -100,74 +100,67 @@ export default defineComponent({
 <style lang="scss" scoped>
 @use 'src/assets/css/rwd.scss' as rwd;
 .banner-container {
-  height: 706px;
+  height: 753px;
   position: relative;
-  margin-top: 5vw;
-  margin-bottom: 200px;
+  margin-top: calc(100vw * (83 / 1440));
   @include rwd.large {
-    margin-top: 95px;
-    margin-bottom: 200px;
+    margin-top: 83px;
   }
   @include rwd.medium {
-    height: calc(100vw * (706 / 1920));
-    margin-bottom: calc(100px + 100vw * (100 / 1920));
+    height: calc(100vw * (753 / 1440));
   }
   @include rwd.small {
     height: calc(100vw * (293 / 600));
-    margin-bottom: 100px;
   }
   .img {
     width: 100%;
     position: absolute;
     @include rwd.large {
-      max-width: 1440px;
-      left: -210px;
+      width: 1536px;
+      left: -216px;
     }
     @include rwd.medium {
-      width: calc(100vw * (1440 / 1920));
-      left: calc(100vw * (-210 / 1920));
+      width: calc(100vw * (1536 / 1440));
+      left: calc(100vw * (-216 / 1440));
     }
   }
 }
-.card {
-  padding: 40px;
-  @include rwd.xs {
-    padding: 20px 0px;
-  }
-  .card-img {
-    border-radius: 32px;
-  }
-  .tag {
-    color: #5d5d5d;
-    font-family: 'Noto Serif TC';
-    font-size: 14px;
-    font-weight: 700;
-    padding: 5px 12px;
-    border-radius: 100px;
-    border: 1px solid #5d5d5d;
-    @include rwd.medium {
-      font-size: calc(10px + 100vw * (4 / 1920));
-      padding: calc(2px + 100vw * (3 / 1920)) calc(7px + 100vw * (5 / 1920));
+.card-list {
+  margin-top: 56px;
+  .card {
+    @include rwd.xs {
+      padding: 0px calc((100vw - 300px) * (90 / 300));
     }
-    @include rwd.small {
-      padding: 2px 7px;
-      font-size: 10px;
+    .card-img {
+      border-radius: 32px;
     }
-  }
-  .title {
-    width: 40%;
-    color: #5d5d5d;
-    font-family: 'SF Pro Display';
-    font-size: 20px;
-    font-weight: 600;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    @include rwd.medium {
-      font-size: calc(16px + 100vw * (4 / 1920));
-    }
-    @include rwd.small {
-      font-size: 16px;
+    .describe {
+      margin-top: 12px;
+      .tag {
+        color: #5d5d5d;
+        font-family: 'Noto Serif TC';
+        font-size: 10px;
+        font-weight: 700;
+        padding: 5px 12px;
+        border-radius: 100px;
+        border: 1px solid #5d5d5d;
+        @include rwd.medium {
+          padding: calc(2px + 100vw * (3 / 1440)) calc(7px + 100vw * (5 / 1440));
+        }
+        @include rwd.small {
+          padding: 2px 7px;
+        }
+      }
+      .title {
+        width: calc(100% - 150px);
+        color: #5d5d5d;
+        font-family: 'SF Pro Display';
+        font-size: 16px;
+        font-weight: 600;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
     }
   }
 }

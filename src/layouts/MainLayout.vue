@@ -1,19 +1,18 @@
 <template lang="pug">
 q-layout(view="lHh Lpr lff")
   q-header.headerBar
-    q-toolbar.text-black.fit.content-padding 
-      .row.items-center
-        img.logo(:src="logo")
-      
-      q-space
-      q-tabs.headerBarTabs(
-        v-model="curTab"
-        shrink no-caps
-      )
-        q-tab.tabItem(name="uiux" @click="gotoPage('uiux')") UI/UX
-        q-tab.tabItem(name="visualDesign" @click="gotoPage('visualDesign')") Visual Design
-        q-tab.tabItem(name="afterHour" @click="gotoPage('afterHour')") After Hour
-        q-tab.tabItem(name="about" @click="gotoPage('about')") About
+    q-toolbar.fit.text-black.page
+      .fit.section.content-padding
+        .fit.row.items-center.justify-between
+          img.logo(:src="logo")
+          q-tabs.headerBarTabs(
+            v-model="curTab"
+            shrink no-caps
+          )
+            q-tab.tabItem(name="uiux" @click="gotoPage('uiux')") UI/UX
+            q-tab.tabItem(name="visualDesign" @click="gotoPage('visualDesign')") Visual Design
+            q-tab.tabItem(name="afterHour" @click="gotoPage('afterHour')") After Hour
+            q-tab.tabItem(name="about" @click="gotoPage('about')") About
   q-page-container
     router-view
   .page
@@ -56,7 +55,7 @@ export default defineComponent({
   backdrop-filter: blur(10px);
   //- shadow: x, y, blur, color
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
-  height: 65px;
+  height: 81px;
   .logo {
     height: 47px;
   }

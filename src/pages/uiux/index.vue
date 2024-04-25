@@ -103,14 +103,14 @@ export default defineComponent({
 <style lang="scss" scoped>
 @use 'src/assets/css/rwd.scss' as rwd;
 .banner-container {
-  height: 542px;
+  height: 510px;
   position: relative;
-  margin-top: 5vw;
+  margin-top: calc(100vw * (83 / 1440));
   @include rwd.large {
-    margin-top: 95px;
+    margin-top: 83px;
   }
   @include rwd.medium {
-    height: calc(100vw * (542 / 1920));
+    height: calc(100vw * (510 / 1440));
   }
   @include rwd.small {
     height: calc(100vw * (276 / 600));
@@ -119,27 +119,27 @@ export default defineComponent({
     width: 100%;
     position: absolute;
     @include rwd.large {
-      max-width: 1440px;
-      left: -60px;
+      width: 1347px;
+      left: -27px;
     }
     @include rwd.medium {
-      width: calc(100vw * (1440 / 1920));
-      left: calc(100vw * (-60 / 1920));
+      width: calc(100vw * (1347 / 1440));
+      left: calc(100vw * (-27 / 1440));
     }
   }
 }
 .line-text {
-  margin: 50px 0px;
+  margin: 50px 0px 16px;
   color: #989898;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 400;
   @include rwd.medium {
-    margin: calc(30px + 100vw * (20 / 1920)) 0px;
-    font-size: calc(16px + 100vw * (10 / 1920));
+    margin: calc(30px + 100vw * (20 / 1440)) 0px calc(10px + 100vw * (6 / 1440));
+    font-size: calc(12px + 100vw * (8 / 1440));
   }
   @include rwd.small {
-    margin: 30px 0px;
-    font-size: 16px;
+    margin: 30px 0px 10px;
+    font-size: 12px;
   }
 }
 .line {
@@ -147,38 +147,41 @@ export default defineComponent({
   height: 106px;
   border-left: 1px solid #989898;
   @include rwd.medium {
-    height: calc(50px + 100vw * (56 / 1920));
+    height: calc(50px + 100vw * (56 / 1440));
   }
   @include rwd.small {
     height: 50px;
   }
 }
 .read-more {
-  width: 350px;
-  height: 350px;
+  width: 225px;
+  height: 225px;
   animation: rotate 12s linear infinite;
+  margin-top: 22px;
   @include rwd.medium {
-    width: calc(200px + 100vw * (150 / 1920));
-    height: calc(200px + 100vw * (150 / 1920));
+    width: calc(120px + 100vw * (105 / 1440));
+    height: calc(120px + 100vw * (105 / 1440));
+    margin-top: calc(10px + 100vw * (12 / 1440));
   }
   @include rwd.small {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
+    margin-top: 10px;
   }
 }
 
 .card {
   position: relative;
   width: 100%;
-  margin: 60px 0px;
+  margin-top: 120px;
   @include rwd.medium {
-    margin: calc(10px + 100vw * (50 / 1920)) 0px;
+    margin-top: calc(60px + 100vw * (60 / 1440));
   }
   @include rwd.small {
-    margin: 10px 0px;
+    margin-top: 60px;
   }
   .thumbnail {
-    width: 70%;
+    width: 67.5%;
     border-radius: 60px;
     border: 1px solid #7a7a7a;
     @include rwd.sm {
@@ -189,7 +192,7 @@ export default defineComponent({
     }
   }
   .window {
-    width: calc(30% + 150px);
+    width: calc(32.5% + 80px);
     position: absolute;
     border-radius: 16px;
     border: 1px solid #666;
@@ -197,7 +200,7 @@ export default defineComponent({
     backdrop-filter: blur(44.5px);
     padding: 24px;
     @include rwd.medium {
-      width: calc(30% + 150px);
+      padding: calc(12px + 100vw * (12 / 1440));
     }
     @include rwd.sm {
       display: none;
@@ -207,10 +210,10 @@ export default defineComponent({
     }
     .window-title {
       color: #666;
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 400;
       @include rwd.medium {
-        font-size: calc(16px + 100vw * (16 / 1920));
+        font-size: calc(16px + 100vw * (12 / 1440));
       }
       @include rwd.small {
         font-size: 16px;
@@ -223,15 +226,21 @@ export default defineComponent({
       font-size: 16px;
       font-weight: 400;
       @include rwd.medium {
-        font-size: calc(12px + 100vw * (4 / 1920));
+        font-size: calc(12px + 100vw * (4 / 1440));
       }
       @include rwd.small {
         font-size: 12px;
       }
     }
     .action {
-      margin-top: 20px;
+      margin-top: 42px;
       text-align: right;
+      @include rwd.medium {
+        margin-top: calc(22px + 100vw * (20 / 1440));
+      }
+      @include rwd.small {
+        margin-top: 22px;
+      }
     }
   }
   .w-postion01 {
@@ -262,7 +271,7 @@ export default defineComponent({
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(44.5px);
     padding: 24px;
-    margin: 30px 0px;
+    margin-top: 30px;
     @include rwd.sm {
       display: block;
     }
@@ -271,12 +280,9 @@ export default defineComponent({
     }
     .window-title {
       color: #666;
-      font-size: 32px;
+      font-size: calc(16px + 100vw * (12 / 1440));
       font-weight: 400;
-      @include rwd.medium {
-        font-size: calc(16px + 100vw * (16 / 1920));
-      }
-      @include rwd.small {
+      @include rwd.xs {
         font-size: 16px;
       }
     }
@@ -284,18 +290,18 @@ export default defineComponent({
       text-align: right;
       line-height: 10px;
       color: #666;
-      font-size: 16px;
+      font-size: calc(12px + 100vw * (4 / 1440));
       font-weight: 400;
-      @include rwd.medium {
-        font-size: calc(12px + 100vw * (4 / 1920));
-      }
-      @include rwd.small {
+      @include rwd.xs {
         font-size: 12px;
       }
     }
     .action {
-      margin-top: 20px;
+      margin-top: calc(22px + 100vw * (20 / 1440));
       text-align: right;
+      @include rwd.small {
+        margin-top: 22px;
+      }
     }
   }
 }

@@ -2,38 +2,36 @@
 //- 頁面定義
 .page {
   position: relative;
-  //- 超過1920置中顯示
+  //- 超過1440置中顯示
   .section {
     position: relative;
-    max-width: 1920px;
+    max-width: 1440px;
     margin: auto;
+  }
+  .last-section {
+    margin-bottom: 216px !important;
+    @include rwd.medium {
+      margin-bottom: calc(100px + 100vw * (116 / 1440)) !important;
+    }
+    @include rwd.small {
+      margin-bottom: 100px !important;
+    }
+  }
+}
+.content-padding {
+  padding: 0px 120px;
+  @include rwd.medium {
+    padding: 0px calc(30px + 100vw * (90 / 1440));
+  }
+  @include rwd.small {
+    padding: 0px 30px;
   }
 }
 //- 背景透明
 .bg-transparent {
   background-color: transparent !important;
 }
-
+//- 匡線(方便切版使用)
 .border {
   border: 1px solid black;
-}
-
-.content-padding {
-  padding: 0px 120px;
-  @include rwd.medium {
-    padding: 0px calc(30px + 100vw * (90 / 1920));
-  }
-  @include rwd.small {
-    padding: 0px 30px;
-  }
-}
-
-.last-section {
-  margin-bottom: 200px !important;
-  @include rwd.medium {
-    margin-bottom: calc(100px + 100vw * (100 / 1920)) !important;
-  }
-  @include rwd.small {
-    margin-bottom: 100px !important;
-  }
 }
