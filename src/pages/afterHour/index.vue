@@ -13,10 +13,13 @@
         :key="item.title"
       )
         .card
-          q-img.card-img(
-            :src="item.img"
-            spinner-color="#6D6D6D"
-          )
+          .card-img-frame
+            q-img.card-img(
+              :src="item.img"
+              spinner-color="#6D6D6D"
+            )
+            .card-hover-info
+                span {{ item.tag}}
           .row.items-center.q-mt-md.describe
             .tag.q-mr-lg {{ item.tag }}
             .title {{ item.title }}
@@ -104,8 +107,35 @@ export default defineComponent({
     padding: 0px calc((100vw - 300px) * (90 / 300));
   }
   .card {
-    .card-img {
+    .card-img-frame {
+      position: relative;
       border-radius: 32px;
+      overflow: hidden;
+      &:hover .card-img {
+        transform: scale(1.1, 1.1);
+      }
+      &:hover .card-hover-info {
+        opacity: 1;
+        transition: opacity 0.7s;
+      }
+      .card-img {
+        transition: all 0.7s ease-out;
+      }
+      .card-hover-info {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        background-color: rgba(75, 77, 83, 0.7);
+        color: #f6f6f6;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px; /* 116.667% */
+      }
     }
     .describe {
       margin-top: 12px;

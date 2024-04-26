@@ -16,47 +16,71 @@
     )
   .section.column.content-padding.last-section
     .card
-      q-img.thumbnail(
-        :src="thumbnail01"
-        spinner-color="#6D6D6D"
-      )
+      .thumbnail-frame
+        q-img.thumbnail(
+          :src="thumbnail01"
+          spinner-color="#6D6D6D"
+          :class="{'thumbnail-scale': windowTitleHover[0].value}"
+        )
       .window.w-postion01
-        .window-title  Open Co-learning Community Online Learning Platform
+        .window-title(
+          @mouseover="windowTitleHover[0].value = true"
+          @mouseleave="windowTitleHover[0].value = false"
+        ) Open Co-learning Community Online Learning Platform
         .window-subtitle July 2023
         .action 
           q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" )
       .small-window
-        .window-title  Open Co-learning Community Online Learning Platform
+        .window-title(
+          @mouseover="windowTitleHover[0].value = true"
+          @mouseleave="windowTitleHover[0].value = false"
+        ) Open Co-learning Community Online Learning Platform
         .window-subtitle July 2023
         .action 
           q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" )
     .card
       .window.w-postion02
-        .window-title  Taichung City Building Line Information Website
+        .window-title(
+          @mouseover="windowTitleHover[1].value = true"
+          @mouseleave="windowTitleHover[1].value = false"
+        ) Taichung City Building Line Information Website
         .window-subtitle Nov 2023
         .action 
           q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" )
-      q-img.thumbnail.thumb-postion02(
-        :src="thumbnail02"
-        spinner-color="#6D6D6D"
-      )
+      .thumbnail-frame.thumb-postion02
+        q-img.thumbnail(
+          :src="thumbnail02"
+          spinner-color="#6D6D6D"
+          :class="{'thumbnail-scale': windowTitleHover[1].value}"
+        )
       .small-window
-        .window-title  Taichung City Building Line Information Website
+        .window-title(
+          @mouseover="windowTitleHover[1].value = true"
+          @mouseleave="windowTitleHover[1].value = false"
+        )  Taichung City Building Line Information Website
         .window-subtitle Nov 2023
         .action 
           q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" )
     .card
-      q-img.thumbnail(
-        :src="thumbnail03"
-        spinner-color="#6D6D6D"
-      )
+      .thumbnail-frame
+        q-img.thumbnail(
+          :src="thumbnail03"
+          spinner-color="#6D6D6D"
+          :class="{'thumbnail-scale': windowTitleHover[2].value}"
+        )
       .window.w-postion01
-        .window-title  Website For Road Patrol Management System
+        .window-title(
+          @mouseover="windowTitleHover[2].value = true"
+          @mouseleave="windowTitleHover[2].value = false"
+        )  Website For Road Patrol Management System
         .window-subtitle Dec 2023
         .action 
           q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" )
       .small-window
-        .window-title  Website For Road Patrol Management System
+        .window-title(
+          @mouseover="windowTitleHover[2].value = true"
+          @mouseleave="windowTitleHover[2].value = false"
+        )  Website For Road Patrol Management System
         .window-subtitle Dec 2023
         .action 
           q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" )
@@ -89,12 +113,19 @@ export default defineComponent({
       (val: number) => reBannerSource(val)
     );
 
+    const windowTitleHover = ref([
+      { id: 0, value: false },
+      { id: 1, value: false },
+      { id: 2, value: false },
+    ]);
+
     return {
       imgUrl,
       circle,
       thumbnail01,
       thumbnail02,
       thumbnail03,
+      windowTitleHover,
     };
   },
 });
@@ -180,15 +211,22 @@ export default defineComponent({
   @include rwd.small {
     margin-top: 60px;
   }
-  .thumbnail {
+  .thumbnail-frame {
     width: 67.5%;
     border-radius: 60px;
     border: 1px solid #7a7a7a;
+    overflow: hidden;
     @include rwd.sm {
       width: 100%;
     }
     @include rwd.xs {
       width: 100%;
+    }
+    .thumbnail {
+      transition: all 0.5s ease-out;
+      &:hover {
+        transform: scale(1.2, 1.2);
+      }
     }
   }
   .window {
@@ -212,6 +250,9 @@ export default defineComponent({
       color: #666;
       font-size: 28px;
       font-weight: 400;
+      &:hover {
+        color: rgb(163, 163, 163);
+      }
       @include rwd.medium {
         font-size: calc(16px + 100vw * (12 / 1440));
       }
@@ -305,7 +346,9 @@ export default defineComponent({
     }
   }
 }
-
+.thumbnail-scale {
+  transform: scale(1.2, 1.2);
+}
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
