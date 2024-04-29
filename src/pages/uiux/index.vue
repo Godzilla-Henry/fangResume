@@ -136,9 +136,9 @@ export default defineComponent({
 .banner-container {
   height: 510px;
   position: relative;
-  margin-top: calc(100vw * (83 / 1440));
+  margin-top: calc(100vw * (80 / 1440));
   @include rwd.large {
-    margin-top: 83px;
+    margin-top: 80px;
   }
   @include rwd.medium {
     height: calc(100vw * (510 / 1440));
@@ -160,12 +160,12 @@ export default defineComponent({
   }
 }
 .line-text {
-  margin: 50px 0px 16px;
+  margin: 64px 0px 16px;
   color: #989898;
   font-size: 20px;
   font-weight: 400;
   @include rwd.medium {
-    margin: calc(30px + 100vw * (20 / 1440)) 0px calc(10px + 100vw * (6 / 1440));
+    margin: calc(30px + 100vw * (34 / 1440)) 0px calc(10px + 100vw * (6 / 1440));
     font-size: calc(12px + 100vw * (8 / 1440));
   }
   @include rwd.small {
@@ -188,11 +188,11 @@ export default defineComponent({
   width: 225px;
   height: 225px;
   animation: rotate 12s linear infinite;
-  margin-top: 22px;
+  margin-top: 16px;
   @include rwd.medium {
     width: calc(120px + 100vw * (105 / 1440));
     height: calc(120px + 100vw * (105 / 1440));
-    margin-top: calc(10px + 100vw * (12 / 1440));
+    margin-top: calc(10px + 100vw * (6 / 1440));
   }
   @include rwd.small {
     width: 120px;

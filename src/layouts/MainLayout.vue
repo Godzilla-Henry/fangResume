@@ -10,7 +10,7 @@ q-layout(view="lHh Lpr lff")
             shrink no-caps
           )
             q-tab.tabItem(name="uiux" @click="gotoPage('uiux')") UI/UX
-            q-tab.tabItem(name="visualDesign" @click="gotoPage('visualDesign')") Visual Design
+            q-tab.tabItem(name="visualDesign" @click="gotoPage('visualDesign')") Work
             q-tab.tabItem(name="afterHour" @click="gotoPage('afterHour')") After Hour
             q-tab.tabItem(name="about" @click="gotoPage('about')") About
   q-page-container
@@ -62,7 +62,8 @@ export default defineComponent({
   .headerBarTabs {
     color: #515151;
     .tabItem {
-      font-size: 15px;
+      color: #515151;
+      font-size: 16px;
       font-weight: 400;
     }
   }

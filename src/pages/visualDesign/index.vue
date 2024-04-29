@@ -8,9 +8,9 @@
       )
   .section.content-padding.last-section
     q-tabs.tabs(v-model="tab")
-      q-tab.tab-title(name="Web" label="Web")
-      q-tab.tab-title(name="App" label="App")
-      q-tab.tab-title(name="Visual" label="Visual")
+      q-tab.tab-title(name="Web") Web
+      q-tab.tab-title(name="App") App
+      q-tab.tab-title(name="Visual") Visual
 
     q-tab-panels.tab-panels(v-model="tab" animated)
       q-tab-panel(name="Web")
@@ -19,7 +19,7 @@
             v-for="item in webList"
             :key="item.title"
           )
-            .card
+            .card(@click="openDialog")
               .card-img-frame
                 q-img.card-img(
                   :src="item.img"
@@ -36,7 +36,7 @@
             v-for="item in appList"
             :key="item.title"
           )
-            .card
+            .card(@click="openDialog")
               .card-img-frame
                 q-img.card-img(
                   :src="item.img"
@@ -53,7 +53,7 @@
             v-for="item in visualList"
             :key="item.title"
           )
-            .card
+            .card(@click="openDialog")
               .card-img-frame
                 q-img.card-img(
                   :src="item.img"
@@ -65,11 +65,13 @@
                 .tag.q-mr-lg {{ item.tag }}
                 .title {{ item.title }}
       
-        
+slider(:isOpen="isOpen" @handleOpen="handleOpen")
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+//- component
+import slider from './components/slider.vue';
 //- img
 import banner01 from 'src/assets/fangImg/visualDesign/banner01.png';
 //- Web
@@ -97,6 +99,9 @@ import cardImg19 from 'src/assets/fangImg/visualDesign/cardImg19.png';
 import cardImg20 from 'src/assets/fangImg/visualDesign/cardImg20.png';
 
 export default defineComponent({
+  components: {
+    slider,
+  },
   setup() {
     const imgUrl = ref(banner01);
     const tab = ref('Web');
@@ -227,12 +232,26 @@ export default defineComponent({
       },
     ]);
 
+    //- Dialog
+    const isOpen = ref<boolean>(false);
+    const openDialog = () => {
+      isOpen.value = true;
+      document.body.style.overflow = 'hidden';
+    };
+    const handleOpen = (value: any) => {
+      isOpen.value = value;
+      document.body.style.overflow = 'auto';
+    };
+
     return {
       imgUrl,
       tab,
       visualList,
       webList,
       appList,
+      isOpen,
+      openDialog,
+      handleOpen,
     };
   },
 });
@@ -243,9 +262,9 @@ export default defineComponent({
 .banner-container {
   height: 753px;
   position: relative;
-  margin-top: calc(100vw * (83 / 1440));
+  margin-top: calc(100vw * (80 / 1440));
   @include rwd.large {
-    margin-top: 83px;
+    margin-top: 80px;
   }
   @include rwd.medium {
     height: calc(100vw * (753 / 1440));
@@ -270,12 +289,14 @@ export default defineComponent({
   margin-top: 80px;
   .tab-title {
     color: #515151;
-    font-size: 20px;
+    font-size: 16px !important;
     font-weight: 400;
+    padding: 0;
+    margin: 0 20px;
   }
 }
 .tab-panels {
-  margin-top: 56px;
+  margin-top: 40px;
   .card {
     @include rwd.xs {
       padding: 0px calc((100vw - 300px) * (90 / 300));
@@ -284,6 +305,9 @@ export default defineComponent({
       position: relative;
       border-radius: 32px;
       overflow: hidden;
+      &:hover {
+        cursor: pointer;
+      }
       &:hover .card-img {
         transform: scale(1.1, 1.1);
       }

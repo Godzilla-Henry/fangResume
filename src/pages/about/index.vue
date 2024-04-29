@@ -1,6 +1,6 @@
 <template lang="pug">
 .page
-  .section
+  .upper
     .row.items-end.banner-container
       .right
         .row.justify-center
@@ -17,9 +17,13 @@
           p 過去接觸視覺設計、網頁及手機APP設計、響應式(RWD)網站設計、政府網站設計等多重項目，能獨立從規劃流程、設計草稿到最後精稿的產出，具備設計介面的互動能力，以及0-1建置設計系統。在職場過程中，我深知學習經驗和反饋的重要性，從最初的平面設計、UI/UX再到前端語法切版，每個階段都必須持續學習並不斷精進自己的技能，才能在科技產業中與時俱進。
           p 為提升自身實力，透過自學及side project的方式培養獨立思辨，在職同時，加入UI實戰營課程，以直播互動課程、作業及小組專題，不斷吸收業界新知與實戰技能，持續學習並接受挑戰。我期待將各種知識與經驗相互融合，實現並創造更有影響力的作品，為社會注入更多正面與美好的力量。
           p 在興趣方面，我喜歡文創手作、旅行，並對觀察生活細節充滿好奇心，享受從不同領域的新知中獲取靈感，期待以此為催化劑，帶來更多積極而有益的改變。
-          .email.text-right
+          .email
             q-icon.q-mx-sm(name="far fa-envelope" color="#585858") 
             | xlingfun@gmail.com
+            q-img.behance-logo(
+              :src="behance_logo"
+              spinner-color="#6D6D6D"
+            )
     .banner-divider
       q-img.img(
         :src="line"
@@ -68,19 +72,34 @@
             li 視覺設計、平面文宣、簡報製作、服務建議書製作、系統教育訓練推播圖文
             li 政府內部管理系統設計：建築線案件查詢系統、地理圖資查詢系統、巡查管理系統、寬頻管道功能維護系統...等10多個系統。
           .bottom 
-            li 專案內容
-            li 台中公園基本資料（https://tcpark.taichung.gov.tw/ParkMain/Home/loginpage）
-            li 台中公園認養與承攬系統（）
-            li 中科3D系統（https://dig.ctsp.gov.tw/ctsp3D/Account/Login?ReturnUrl=%2Fctsp3d%2Fctsp3d.html）
-            li 台中好好行 (https://plan.construction.taichung.gov.tw/TCPatrol/)
-            li 台中寬頻管道系統（https://tcroad.taichung.gov.tw/TCBBeamDN6/Account/LoginMaintain）
-            li 苗栗歷年重劃清冊掃瞄建檔與查詢系統（）
-            li 台中建築線 Web、App（）
-            li 苗栗道路巡查系統 Web、App（）
-            li 台中港工作業管理系統 Web、App（）
-            li 台中都市計畫、國土計畫、區域計畫系統（）
-            li 台中土地容積移轉申請案系統（）
-            li 鹿港道路養護繪製平台系統（）
+            li.case
+              q-icon.q-mr-sm(name="fas fa-suitcase")  
+              |專案內容
+            li 
+              span.q-mr-sm 台中公園基本資料 
+              a(href="https://tcpark.taichung.gov.tw/ParkMain/Home/loginpage" target="_blank") 
+                q-icon(name="far fa-clone") 
+          
+            li 台中公園認養與承攬系統
+            li 
+              span.q-mr-sm 中科3D系統
+              a(href="https://dig.ctsp.gov.tw/ctsp3D/Account/Login?ReturnUrl=%2Fctsp3d%2Fctsp3d.html" target="_blank") 
+                q-icon(name="far fa-clone") 
+            li 
+              span.q-mr-sm 台中好好行
+              a(href="https://plan.construction.taichung.gov.tw/TCPatrol/" target="_blank") 
+                q-icon(name="far fa-clone") 
+            li
+              span.q-mr-sm 台中寬頻管道系統
+              a(href="https://tcroad.taichung.gov.tw/TCBBeamDN6/Account/LoginMaintain" target="_blank") 
+                q-icon(name="far fa-clone") 
+            li 苗栗歷年重劃清冊掃瞄建檔與查詢系統
+            li 台中建築線 Web、App
+            li 苗栗道路巡查系統 Web、App
+            li 台中港工作業管理系統 Web、App
+            li 台中都市計畫、國土計畫、區域計畫系統
+            li 台中土地容積移轉申請案系統
+            li 鹿港道路養護繪製平台系統
         .list-content
           .row.items-center.justify-between
             .list-title Freelancer
@@ -172,6 +191,7 @@ import cardimg02 from 'src/assets/fangImg/aboutMe/cardImg02.png';
 import cardimg03 from 'src/assets/fangImg/aboutMe/cardImg03.png';
 import cardimg04 from 'src/assets/fangImg/aboutMe/cardImg04.png';
 import bottom from 'src/assets/fangImg/aboutMe/bottom.png';
+import behance_logo from 'src/assets/fangImg/aboutMe/behance_logo.png';
 
 export default defineComponent({
   setup() {
@@ -210,6 +230,7 @@ export default defineComponent({
       dot,
       cardList,
       bottom,
+      behance_logo,
     };
   },
 });
@@ -217,14 +238,17 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @use 'src/assets/css/rwd.scss' as rwd;
+.upper {
+  position: relative;
+}
 .banner-container {
   flex-direction: row;
   justify-content: center;
   position: relative;
-  margin-top: calc(100vw * (83 / 1440));
+  margin-top: calc(100vw * (80 / 1440));
   @include rwd.large {
     flex-direction: row-reverse;
-    margin-top: 83px;
+    margin-top: 80px;
   }
   .left {
     width: 836px;
@@ -267,11 +291,18 @@ export default defineComponent({
         margin-top: 16px;
       }
       .email {
+        display: flex;
+        justify-content: end;
+        align-items: center;
         margin-top: 48px;
         color: #585858;
         font-family: 'SF Pro Text';
         font-size: 16px;
         font-weight: 500;
+        .behance-logo {
+          width: 20px;
+          margin-left: 24px;
+        }
       }
     }
   }
@@ -282,26 +313,25 @@ export default defineComponent({
 }
 .banner-divider {
   width: 100%;
-  max-width: 1440px;
   position: absolute;
-  top: 450px;
+  bottom: -40px;
   z-index: 1;
 }
 .read-more {
   width: 225px;
   height: 225px;
-  margin: 130px 0px 52px;
+  margin: 120px 0px 16px;
   animation: rotate 12s linear infinite;
   @include rwd.medium {
     width: calc(120px + 100vw * (105 / 1440));
     height: calc(120px + 100vw * (105 / 1440));
-    margin: calc(50px + 100vw * (100 / 1440)) 0px
-      calc(30px + 100vw * (22 / 1440)) 0px;
+    margin: calc(30px + 100vw * (90 / 1440)) 0px calc(10px + 100vw * (6 / 1440))
+      0px;
   }
   @include rwd.small {
     width: 120px;
     height: 120px;
-    margin: 50px 0px 30px;
+    margin: 30px 0px 10px;
   }
 }
 .line {
@@ -336,7 +366,7 @@ export default defineComponent({
   font-weight: 400;
   line-height: 70.2px; /* 200% */
   letter-spacing: 3.51px;
-  margin: 8px 0 60px 0;
+  margin: 8px 0 64px 0;
 }
 .card-list {
   margin-bottom: 59px;
@@ -374,7 +404,7 @@ export default defineComponent({
 }
 
 .list {
-  margin-top: 123px;
+  margin-top: 120px;
   .list-tag {
     color: #2d2d2d;
     font-size: 16px;
@@ -413,14 +443,20 @@ export default defineComponent({
       font-style: normal;
       font-weight: 400;
       line-height: 200%; /* 25.6px */
+      a {
+        text-decoration: none;
+      }
+      &.case {
+        list-style: none;
+      }
     }
     .bottom {
-      margin-top: 32px;
+      margin-top: 10px;
     }
   }
 }
 .about-bottom {
-  margin-top: 418px;
+  margin-top: 400px;
 }
 @keyframes rotate {
   0% {

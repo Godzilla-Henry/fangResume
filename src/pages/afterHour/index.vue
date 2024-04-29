@@ -72,9 +72,9 @@ export default defineComponent({
 .banner-container {
   height: 825px;
   position: relative;
-  margin-top: calc(100vw * (83 / 1440));
+  margin-top: calc(100vw * (80 / 1440));
   @include rwd.large {
-    margin-top: 83px;
+    margin-top: 80px;
   }
   @include rwd.medium {
     height: calc(100vw * (825 / 1440));
@@ -97,7 +97,7 @@ export default defineComponent({
 }
 
 .card-list {
-  margin-top: 120px;
+  margin-top: 80px;
   @include rwd.sm {
     margin-top: 60px;
     padding: 0px calc((100vw - 600px) * (90 / 424));
