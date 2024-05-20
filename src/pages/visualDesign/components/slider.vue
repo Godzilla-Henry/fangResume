@@ -2,8 +2,8 @@
 .dialog(v-if="isOpen")
   .dialog-overlay(@click.prevent="handleOpen()")
   .dialog-content
-    q-btn.close-btn(unelevated round color="grey-9" size="md" @click.prevent="handleOpen()")
-      q-icon(name="fas fa-close" color="white")
+    q-btn.close-btn(unelevated round @click.prevent="handleOpen()")
+      q-icon(name="fas fa-close")
     .row.fit
       .col-12.playing-container
         .img-playing
@@ -14,18 +14,16 @@
         .right 
           q-btn(
             icon="chevron_right" 
-            outline round
+            round :outline="width > 600"
             size="md"
             @click="change(1)"
-            style="color: #949494;"
           )
         .left
           q-btn(
             icon="chevron_left" 
-            outline round
+            round :outline="width > 600"
             size="md"
             @click="change(-1)"
-            style="color: #949494;"
           )
 
       .col-12.img-list
@@ -43,28 +41,28 @@
 </template>
 
 <script lang="ts">
-import { I } from 'app/dist/spa/assets/index.35c76f32';
 import { defineComponent, ref, watchEffect } from 'vue';
-import subImg11_1 from 'src/assets/fangImg/visualDesign/subImg11_1.png';
-import subImg11_2 from 'src/assets/fangImg/visualDesign/subImg11_2.png';
-import subImg11_3 from 'src/assets/fangImg/visualDesign/subImg11_3.png';
+import { useWindowSize } from '@vueuse/core';
 
 export default defineComponent({
-  props: ['isOpen'],
+  props: ['isOpen', 'subImg'],
   setup(props, { emit }) {
+    const { width } = useWindowSize();
     const isOpen = ref<boolean>(props.isOpen);
+    //- 照片列表
+    const imgList = ref([]) as any;
+    //- 正在播放的照片
+    const imgPlaying = ref();
     //- 監聽
-    watchEffect(() => (isOpen.value = props.isOpen));
+    watchEffect(() => {
+      isOpen.value = props.isOpen;
+      imgList.value = props.subImg;
+
+      imgPlaying.value = imgList.value[0];
+    });
     const handleOpen = () => {
       emit('handleOpen', false);
     };
-
-    //- 照片列表
-    const imgList = ref([subImg11_1, subImg11_2, subImg11_3]) as any;
-
-    //- 正在播放的照片
-    const imgPlaying = ref(imgList.value[0]);
-
     const nextIndex = ref(0);
     //- 更換
     const change = (action: any) => {
@@ -87,6 +85,7 @@ export default defineComponent({
       isOpen,
       imgList,
       imgPlaying,
+      width,
       handleOpen,
       change,
       changeToIndex,
@@ -112,8 +111,8 @@ export default defineComponent({
   }
   .dialog-content {
     position: absolute;
-    width: 72%;
-    padding: 74px 185px;
+    width: 100%;
+    padding: 74px calc(32px + 100vw * (153 / 1440));
     border-radius: 12px;
     z-index: 9999;
     top: 50%;
@@ -122,11 +121,24 @@ export default defineComponent({
     background-color: #fff;
     @include rwd.large {
       width: 1036px;
+      padding: 74px 185px;
+    }
+    @include rwd.small {
+      padding: 74px 32px;
     }
     .close-btn {
       position: absolute;
-      top: 0px;
-      right: -50px;
+      color: rgba(0, 0, 0, 0.6);
+      top: 24px;
+      right: 20px;
+      font-size: 22px;
+      @include rwd.large {
+        background-color: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        top: 0px;
+        right: -55px;
+        font-size: 16px;
+      }
     }
     .playing-container {
       width: 100%;
@@ -143,10 +155,20 @@ export default defineComponent({
       .right {
         position: absolute;
         right: -102px;
+        color: #949494;
+        @include rwd.small {
+          right: 10px;
+          color: black;
+        }
       }
       .left {
         position: absolute;
         left: -102px;
+        color: #949494;
+        @include rwd.small {
+          left: 10px;
+          color: black;
+        }
       }
     }
     .img-list {
@@ -156,6 +178,9 @@ export default defineComponent({
       justify-content: center;
       align-items: center;
       gap: 10px;
+      @include rwd.small {
+        display: none;
+      }
       .img {
         position: relative;
         width: 80px;

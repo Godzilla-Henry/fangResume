@@ -19,7 +19,7 @@
             v-for="item in webList"
             :key="item.title"
           )
-            .card(@click="openDialog")
+            .card(@click="openDialog(item)")
               .card-img-frame
                 q-img.card-img(
                   :src="item.img"
@@ -36,7 +36,7 @@
             v-for="item in appList"
             :key="item.title"
           )
-            .card(@click="openDialog")
+            .card(@click="openDialog(item)")
               .card-img-frame
                 q-img.card-img(
                   :src="item.img"
@@ -53,7 +53,7 @@
             v-for="item in visualList"
             :key="item.title"
           )
-            .card(@click="openDialog")
+            .card(@click="openDialog(item)")
               .card-img-frame
                 q-img.card-img(
                   :src="item.img"
@@ -65,7 +65,7 @@
                 .tag.q-mr-lg {{ item.tag }}
                 .title {{ item.title }}
       
-slider(:isOpen="isOpen" @handleOpen="handleOpen")
+slider(:isOpen="isOpen" :subImg="curPicture" @handleOpen="handleOpen")
 </template>
 
 <script lang="ts">
@@ -97,6 +97,39 @@ import cardImg18 from 'src/assets/fangImg/visualDesign/cardImg18.png';
 //- visual
 import cardImg19 from 'src/assets/fangImg/visualDesign/cardImg19.png';
 import cardImg20 from 'src/assets/fangImg/visualDesign/cardImg20.png';
+//- Sub Img
+import subImg01_1 from 'src/assets/fangImg/visualDesign/subImg/subImg01_1.png';
+import subImg01_2 from 'src/assets/fangImg/visualDesign/subImg/subImg01_2.png';
+import subImg02_1 from 'src/assets/fangImg/visualDesign/subImg/subImg02_1.png';
+import subImg02_2 from 'src/assets/fangImg/visualDesign/subImg/subImg02_2.png';
+import subImg03_1 from 'src/assets/fangImg/visualDesign/subImg/subImg03_1.png';
+import subImg03_2 from 'src/assets/fangImg/visualDesign/subImg/subImg03_2.png';
+import subImg03_3 from 'src/assets/fangImg/visualDesign/subImg/subImg03_3.png';
+import subImg04_1 from 'src/assets/fangImg/visualDesign/subImg/subImg04_1.png';
+import subImg05_1 from 'src/assets/fangImg/visualDesign/subImg/subImg05_1.png';
+import subImg06_1 from 'src/assets/fangImg/visualDesign/subImg/subImg06_1.png';
+import subImg07_1 from 'src/assets/fangImg/visualDesign/subImg/subImg07_1.png';
+import subImg08_1 from 'src/assets/fangImg/visualDesign/subImg/subImg08_1.png';
+import subImg09_1 from 'src/assets/fangImg/visualDesign/subImg/subImg09_1.png';
+import subImg10_1 from 'src/assets/fangImg/visualDesign/subImg/subImg10_1.png';
+import subImg10_2 from 'src/assets/fangImg/visualDesign/subImg/subImg10_2.png';
+import subImg11_1 from 'src/assets/fangImg/visualDesign/subImg/subImg11_1.png';
+import subImg11_2 from 'src/assets/fangImg/visualDesign/subImg/subImg11_2.png';
+import subImg11_3 from 'src/assets/fangImg/visualDesign/subImg/subImg11_3.png';
+import subImg12_1 from 'src/assets/fangImg/visualDesign/subImg/subImg12_1.png';
+import subImg12_2 from 'src/assets/fangImg/visualDesign/subImg/subImg12_2.png';
+import subImg13_1 from 'src/assets/fangImg/visualDesign/subImg/subImg13_1.png';
+import subImg14_1 from 'src/assets/fangImg/visualDesign/subImg/subImg14_1.png';
+import subImg14_2 from 'src/assets/fangImg/visualDesign/subImg/subImg14_2.png';
+import subImg15_1 from 'src/assets/fangImg/visualDesign/subImg/subImg15_1.png';
+import subImg16_1 from 'src/assets/fangImg/visualDesign/subImg/subImg16_1.png';
+import subImg16_2 from 'src/assets/fangImg/visualDesign/subImg/subImg16_2.png';
+import subImg17_1 from 'src/assets/fangImg/visualDesign/subImg/subImg17_1.png';
+import subImg18_1 from 'src/assets/fangImg/visualDesign/subImg/subImg18_1.png';
+import subImg19_1 from 'src/assets/fangImg/visualDesign/subImg/subImg19_1.png';
+import subImg19_2 from 'src/assets/fangImg/visualDesign/subImg/subImg19_2.png';
+import subImg20_1 from 'src/assets/fangImg/visualDesign/subImg/subImg20_1.png';
+import subImg20_2 from 'src/assets/fangImg/visualDesign/subImg/subImg20_2.png';
 
 export default defineComponent({
   components: {
@@ -111,54 +144,63 @@ export default defineComponent({
         title: '台中建築線宣傳圖',
         tag: 'GRAPHIC',
         hoverText: 'Poster',
+        subImg: [subImg01_1, subImg01_2],
       },
       {
         img: cardImg02,
         title: '管溝3D影像海報',
         tag: 'TYPOGRAPHY',
         hoverText: 'Poster',
+        subImg: [subImg02_1, subImg02_2],
       },
       {
         img: cardImg03,
         title: 'GEO LOGO DESIGN',
         tag: 'GRAPHIC',
         hoverText: 'LOGO',
+        subImg: [subImg03_1, subImg03_2, subImg03_3],
       },
       {
         img: cardImg04,
         title: '苗栗道路巡查服務建議書',
         tag: 'TYPOGRAPHY',
         hoverText: 'RFP',
+        subImg: [subImg04_1],
       },
       {
         img: cardImg05,
         title: '台中公園系統建置服務建議書',
         tag: 'TYPOGRAPHY',
         hoverText: 'RFP',
+        subImg: [subImg05_1],
       },
       {
         img: cardImg06,
         title: '台中公共管線服務建議書',
         tag: 'TYPOGRAPHY',
         hoverText: 'RFP',
+        subImg: [subImg06_1],
       },
       {
         img: cardImg07,
         title: '桃園寬頻系統服務建議書',
         tag: 'TYPOGRAPHY',
         hoverText: 'RFP',
+        subImg: [subImg07_1],
       },
       {
         img: cardImg08,
         title: '台中建築線系統建置服務建議書',
         tag: 'TYPOGRAPHY',
         hoverText: 'RFP',
+        subImg: [subImg08_1],
       },
       {
         img: cardImg09,
         title: '台中港工系統建置服務建議書',
         tag: 'TYPOGRAPHY',
         hoverText: 'RFP',
+        subImg: [subImg09_1],
       },
     ]);
     const webList = ref([
@@ -167,54 +209,63 @@ export default defineComponent({
         title: '台中都市計畫審議服務網',
         tag: 'WEB DESIGN',
         hoverText: 'WEB DESIGN',
+        subImg: [subImg10_1, subImg10_2],
       },
       {
         img: cardImg11,
         title: '苗栗歷年掃描建檔及查詢系統',
         tag: 'WEB DESIGN',
         hoverText: 'WEB DESIGN',
+        subImg: [subImg11_1, subImg11_2, subImg11_3],
       },
       {
         img: cardImg12,
         title: '公園基本資料維護系統',
         tag: 'GRAPHIC',
         hoverText: 'WEB DESIGN',
+        subImg: [subImg12_1, subImg12_2],
       },
       {
         img: cardImg13,
         title: '公園認養與承攬管理系統',
         tag: 'WEB DESIGN',
         hoverText: 'WEB DESIGN',
+        subImg: [subImg13_1],
       },
       {
         img: cardImg14,
         title: '台中市建築線指示定案件資訊網',
         tag: 'WEB DESIGN',
         hoverText: 'WEB DESIGN',
+        subImg: [subImg14_1, subImg14_2],
       },
       {
         img: cardImg15,
         title: '苗栗縣道路養護巡查管理系統',
         tag: 'WEB DESIGN',
         hoverText: 'WEB DESIGN',
+        subImg: [subImg15_1],
       },
       {
         img: cardImg16,
         title: '台中寬頻管道地理收費系統',
         tag: 'WEB DESIGN',
         hoverText: 'WEB DESIGN',
+        subImg: [subImg16_1, subImg16_2],
       },
       {
         img: cardImg17,
         title: '彰化縣鹿港鎮道路養護系統',
         tag: 'WEB DESIGN',
         hoverText: 'WEB DESIGN',
+        subImg: [subImg17_1],
       },
       {
         img: cardImg18,
         title: '台中建築線指示(定)案件查詢系統',
         tag: 'WEB DESIGN',
         hoverText: 'WEB DESIGN',
+        subImg: [subImg18_1],
       },
     ]);
     const appList = ref([
@@ -223,19 +274,24 @@ export default defineComponent({
         title: 'GEO LOGO DESIGN',
         tag: 'APP',
         hoverText: 'APP',
+        subImg: [subImg19_1, subImg19_2],
       },
       {
         img: cardImg20,
         title: 'GEO LOGO DESIGN',
         tag: 'APP',
         hoverText: 'APP',
+        subImg: [subImg20_1, subImg20_2],
       },
     ]);
 
     //- Dialog
     const isOpen = ref<boolean>(false);
-    const openDialog = () => {
+    //- Cur Picture
+    const curPicture = ref([]) as any;
+    const openDialog = (item: any) => {
       isOpen.value = true;
+      curPicture.value = [...item.subImg];
       document.body.style.overflow = 'hidden';
     };
     const handleOpen = (value: any) => {
@@ -250,6 +306,7 @@ export default defineComponent({
       webList,
       appList,
       isOpen,
+      curPicture,
       openDialog,
       handleOpen,
     };

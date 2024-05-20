@@ -7,18 +7,22 @@ const routes: RouteRecordRaw[] = [
     redirect: '/uiux',
     children: [
       {
+        name: 'uiux',
         path: '/uiux',
         component: () => import('pages/uiux/index.vue'),
       },
       {
+        name: 'visualDesign',
         path: '/visualDesign',
         component: () => import('pages/visualDesign/index.vue'),
       },
       {
+        name: 'afterHour',
         path: '/afterHour',
         component: () => import('pages/afterHour/index.vue'),
       },
       {
+        name: 'about',
         path: '/about',
         component: () => import('pages/about/index.vue'),
       },
