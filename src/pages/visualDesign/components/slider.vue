@@ -8,7 +8,7 @@
       .col-12.playing-container
         .img-playing
           q-img(
-            :src="imgPlaying"
+            :src="imgPlaying" fit="contain"
             style="width: 100%; height: 100%;"
           )
         .right 

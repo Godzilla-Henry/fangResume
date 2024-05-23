@@ -26,6 +26,26 @@ const routes: RouteRecordRaw[] = [
         path: '/about',
         component: () => import('pages/about/index.vue'),
       },
+      {
+        name: 'acrylic',
+        path: '/afterHour/acrylic',
+        component: () => import('pages/afterHour/acrylic/index.vue'),
+      },
+      {
+        name: 'corporate',
+        path: '/afterHour/corporate',
+        component: () => import('pages/afterHour/corporate/index.vue'),
+      },
+      {
+        name: 'newYear',
+        path: '/afterHour/newYear',
+        component: () => import('pages/afterHour/newYear/index.vue'),
+      },
+      {
+        name: 'logo',
+        path: '/afterHour/logo',
+        component: () => import('pages/afterHour/logo/index.vue'),
+      },
     ],
   },
 

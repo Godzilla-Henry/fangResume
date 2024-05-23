@@ -12,7 +12,7 @@
         v-for="item in cardList"
         :key="item.title"
       )
-        .card
+        .card(@click="router.push(item.path)")
           .card-img-frame
             q-img.card-img(
               :src="item.img"
@@ -34,34 +34,42 @@ import cardImg01 from 'src/assets/fangImg/afterHour/cardImg01.png';
 import cardImg02 from 'src/assets/fangImg/afterHour/cardImg02.png';
 import cardImg03 from 'src/assets/fangImg/afterHour/cardImg03.png';
 import cardImg04 from 'src/assets/fangImg/afterHour/cardImg04.png';
+import { useRouter } from 'vue-router';
 export default defineComponent({
   setup() {
+    const router = useRouter();
+
     const imgUrl = ref(banner01);
     const cardList = ref([
       {
         img: cardImg01,
         title: '壓克力畫作',
         tag: 'DESIGN',
+        path: '/afterHour/acrylic',
       },
       {
         img: cardImg02,
         title: '2023新年明信片',
         tag: 'DESIGN',
+        path: '/afterHour/newYear',
       },
       {
         img: cardImg03,
         title: '企業形象識別系統',
         tag: 'ILLUSTRATION',
+        path: '/afterHour/corporate',
       },
       {
         img: cardImg04,
         title: '個人形象識別LOGO設計',
         tag: 'ILLUSTRATION',
+        path: '/afterHour/logo',
       },
     ]);
     return {
       imgUrl,
       cardList,
+      router,
     };
   },
 });
