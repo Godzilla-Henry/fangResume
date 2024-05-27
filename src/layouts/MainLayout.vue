@@ -78,9 +78,7 @@ export default defineComponent({
         offset *= 0.95;
 
         if (Math.abs(offset) > 0.1) {
-          scroller!.style.transform = `translate3d(0, ${offset}px, 0) rotate(${
-            offset * 0.2
-          }deg)`;
+          scroller!.style.transform = `translate3d(0, ${offset}px, 0)`;
         } else {
           scroller!.style.transform = ``;
         }
