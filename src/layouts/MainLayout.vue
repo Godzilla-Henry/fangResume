@@ -24,8 +24,8 @@ q-layout(view="lHh Lpr lff")
         .menu_item(@click="gotoPage('visualDesign')") Work
         .menu_item(@click="gotoPage('afterHour')") After Hour
         .menu_item(@click="gotoPage('about')") About
-
-    router-view
+    .smooth-scroll
+      router-view
   .page
     .section.footerBar.content-padding
       .fit
@@ -37,10 +37,9 @@ q-layout(view="lHh Lpr lff")
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, onMounted, watch } from 'vue';
 import logo from 'src/assets/img/headerBarLogo.png';
 import { useRoute, useRouter } from 'vue-router';
-import { onMounted } from 'vue';
 
 export default defineComponent({
   name: 'MainLayout',
@@ -55,10 +54,38 @@ export default defineComponent({
       openMenu.value = false;
       router.push({ path: '/' + val });
     };
-    console.log(route.name);
 
     onMounted(() => {
       curTab.value = route.name;
+      const scroller = document.querySelector('.smooth-scroll') as any;
+      let scrollPos = scrollPosition();
+      let scrollSpeed = 0;
+      let offset = 0;
+
+      //- 滾動的位置
+      function scrollPosition() {
+        return window.scrollY || document.documentElement.scrollTop;
+      }
+      window.addEventListener('scroll', () => {
+        scrollSpeed = scrollPosition() - scrollPos;
+        scrollPos = scrollPosition();
+        offset += scrollSpeed * 0.75;
+      });
+
+      function update() {
+        requestAnimationFrame(update);
+
+        offset *= 0.95;
+
+        if (Math.abs(offset) > 0.1) {
+          scroller!.style.transform = `translate3d(0, ${offset}px, 0) skew(0, ${
+            offset * 0.01
+          }deg)`;
+        } else {
+          scroller!.style.transform = ``;
+        }
+      }
+      update();
     });
     return {
       logo,
@@ -72,6 +99,10 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 @use 'src/assets/css/rwd.scss' as rwd;
+.smooth-scroll {
+  position: relative;
+  transition: all ease-in-out;
+}
 .headerBar {
   background-color: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(10px);

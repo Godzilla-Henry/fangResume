@@ -4,7 +4,7 @@
     .title 壓克力畫作
     .subtitle acrylic paintings
   .section.content-padding
-    .banner(:style="{'background-position-y': 'calc(50% - ' + y * 0.2 + 'px' + ')'}")
+    .banner-img(:style="{'background-position-y': 'calc(45% - ' + y * 0.3 + 'px' + ')'}")
   .section.content-padding.table(style="margin-top: 64px;")
     .table-label Project details
     .table-content
@@ -69,7 +69,7 @@ export default defineComponent({
   font-weight: 500;
   margin: 8px 0 64px;
 }
-.banner {
+.banner-img {
   width: 100%;
   height: calc(100vw * (630 / 1440));
   border-radius: 60px;
@@ -79,8 +79,9 @@ export default defineComponent({
   //- background
   background-image: url('src/assets/fangImg/afterHour/acrylic/acrylic_4.png');
   background-position: center center; /* x,y */
-  background-repeat: no-repeat;
-  background-size: 100% auto;
+  background-repeat: repeat;
+  background-size: auto;
+  transition: background-position 0.5s ease-in-out;
 }
 .table {
   display: flex;
