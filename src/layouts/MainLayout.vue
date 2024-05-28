@@ -26,14 +26,14 @@ q-layout(view="lHh Lpr lff")
         .menu_item(@click="gotoPage('about')") About
     .smooth-scroll
       router-view
-  .page
-    .section.footerBar.content-padding
-      .fit
-        .footer-line
-        .footer-title Thanks for stopping by !
-        .copy-right.text-center   
-          .copy-right-title Design - Fang｜Build - Henry
-          .copy-right-subtitle  © 2024 
+      .page
+        .section.footerBar.content-padding
+          .fit
+            .footer-line
+            .footer-title Thanks for stopping by !
+            .copy-right.text-center   
+              .copy-right-title Design - Fang｜Build - Henry
+              .copy-right-subtitle  © 2024 
 </template>
 
 <script lang="ts">
