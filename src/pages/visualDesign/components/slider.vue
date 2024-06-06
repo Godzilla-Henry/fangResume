@@ -4,12 +4,13 @@
   .dialog-content
     q-btn.close-btn(unelevated round @click.prevent="handleOpen()")
       q-icon(name="fas fa-close")
-    .row.fit
-      .col-12.playing-container
+    .row.justify-center.items-center.fit
+      .playing-container
         .img-playing
           q-img(
-            :src="imgPlaying" fit="contain"
-            style="width: 100%; height: 100%;"
+            :src="imgPlaying"
+            fit="contain"
+            :ratio="1"
           )
         .right 
           q-btn(
@@ -26,7 +27,7 @@
             @click="change(-1)"
           )
 
-      .col-12.img-list
+      .img-list(v-if="height > 800")
         .img(
           v-for="(img, index) in imgList" :key="index"
           :class="{'active': img == imgPlaying}"
@@ -34,7 +35,8 @@
         )
           q-img(
             :src="img"
-            style="width: 80px; height: 80px;"
+            fit="contain"
+            :ratio="1"
           )
         
 
@@ -43,11 +45,13 @@
 <script lang="ts">
 import { defineComponent, ref, watchEffect } from 'vue';
 import { useWindowSize } from '@vueuse/core';
+import { useGlobal } from 'src/stores';
 
 export default defineComponent({
   props: ['isOpen', 'subImg'],
   setup(props, { emit }) {
-    const { width } = useWindowSize();
+    const { width, height } = useWindowSize();
+    const globalStore = useGlobal();
     const isOpen = ref<boolean>(props.isOpen);
     //- 照片列表
     const imgList = ref([]) as any;
@@ -55,7 +59,7 @@ export default defineComponent({
     const imgPlaying = ref();
     //- 監聽
     watchEffect(() => {
-      isOpen.value = props.isOpen;
+      if (!globalStore.getScrolling) isOpen.value = props.isOpen;
       imgList.value = props.subImg;
 
       imgPlaying.value = imgList.value[0];
@@ -86,6 +90,7 @@ export default defineComponent({
       imgList,
       imgPlaying,
       width,
+      height,
       handleOpen,
       change,
       changeToIndex,
@@ -109,9 +114,11 @@ export default defineComponent({
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
   }
+  //- 彈窗主體
   .dialog-content {
     position: absolute;
-    width: 100%;
+    width: 80vw;
+    height: 90vh;
     padding: 74px calc(32px + 100vw * (153 / 1440));
     border-radius: 12px;
     z-index: 9999;
@@ -119,13 +126,6 @@ export default defineComponent({
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #fff;
-    @include rwd.large {
-      width: 1036px;
-      padding: 74px 185px;
-    }
-    @include rwd.small {
-      padding: 74px 32px;
-    }
     .close-btn {
       position: absolute;
       color: rgba(0, 0, 0, 0.6);
@@ -140,22 +140,26 @@ export default defineComponent({
         font-size: 16px;
       }
     }
+    //- 正在播放
     .playing-container {
       width: 100%;
       height: 70%;
-      padding: 54px 0 117px;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
       .img-playing {
-        width: 666px;
-        height: 500px;
+        width: 100%;
+        max-width: 600px;
       }
       .right {
         position: absolute;
         right: -102px;
         color: #949494;
+        @include rwd.medium {
+          right: -70px;
+          color: black;
+        }
         @include rwd.small {
           right: 10px;
           color: black;
@@ -165,12 +169,17 @@ export default defineComponent({
         position: absolute;
         left: -102px;
         color: #949494;
+        @include rwd.medium {
+          left: -70px;
+          color: black;
+        }
         @include rwd.small {
           left: 10px;
           color: black;
         }
       }
     }
+    //- 播放列表
     .img-list {
       width: 100%;
       height: 30%;
@@ -178,9 +187,6 @@ export default defineComponent({
       justify-content: center;
       align-items: center;
       gap: 10px;
-      @include rwd.small {
-        display: none;
-      }
       .img {
         position: relative;
         width: 80px;
