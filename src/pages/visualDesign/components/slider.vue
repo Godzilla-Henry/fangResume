@@ -1,8 +1,8 @@
 <template lang="pug">
 .dialog(v-if="isOpen")
-  .dialog-overlay(@click.prevent="handleOpen()")
+  .dialog-overlay
   .dialog-content
-    q-btn.close-btn(unelevated round @click.prevent="handleOpen()")
+    q-btn.close-btn(unelevated round @click.prevent="close")
       q-icon(name="fas fa-close")
     .row.justify-center.items-center.fit
       .playing-container
@@ -38,35 +38,22 @@
             fit="contain"
             :ratio="1"
           )
-        
-
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watchEffect } from 'vue';
+import { defineComponent, ref, onMounted } from 'vue';
 import { useWindowSize } from '@vueuse/core';
-import { useGlobal } from 'src/stores';
+import eventBus from 'src/Utils/useEventBus';
 
 export default defineComponent({
   props: ['isOpen', 'subImg'],
   setup(props, { emit }) {
     const { width, height } = useWindowSize();
-    const globalStore = useGlobal();
-    const isOpen = ref<boolean>(props.isOpen);
+    const isOpen = ref<boolean>(false);
     //- 照片列表
     const imgList = ref([]) as any;
     //- 正在播放的照片
     const imgPlaying = ref();
-    //- 監聽
-    watchEffect(() => {
-      if (!globalStore.getScrolling) isOpen.value = props.isOpen;
-      imgList.value = props.subImg;
-
-      imgPlaying.value = imgList.value[0];
-    });
-    const handleOpen = () => {
-      emit('handleOpen', false);
-    };
     const nextIndex = ref(0);
     //- 更換
     const change = (action: any) => {
@@ -85,15 +72,30 @@ export default defineComponent({
       imgPlaying.value = imgList.value[index];
     };
 
+    //- 關閉
+    const close = () => {
+      isOpen.value = false;
+      document.body.style.overflow = 'auto';
+    };
+
+    onMounted(() => {
+      eventBus.on('openSlider', (data) => {
+        isOpen.value = true;
+        console.log(data);
+        imgList.value = data;
+        imgPlaying.value = imgList.value[0];
+      });
+    });
+
     return {
       isOpen,
       imgList,
       imgPlaying,
       width,
       height,
-      handleOpen,
       change,
       changeToIndex,
+      close,
     };
   },
 });

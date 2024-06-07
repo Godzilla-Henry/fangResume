@@ -1,6 +1,5 @@
 <template lang="pug">
 q-layout(view="lHh Lpr lff")
-  .loading(v-if="scrolling")
   q-header.headerBar
     q-toolbar.fit.text-black.page
       .fit.section.content-padding
@@ -42,7 +41,6 @@ import { defineComponent, ref, onMounted, watch } from 'vue';
 import logo from 'src/assets/img/headerBarLogo.png';
 import { useRoute, useRouter } from 'vue-router';
 import { useGlobal } from 'src/stores';
-import { computed } from 'vue';
 
 export default defineComponent({
   name: 'MainLayout',
@@ -52,7 +50,6 @@ export default defineComponent({
     const route = useRoute();
     const curTab = ref('uiux') as any;
     const openMenu = ref<boolean>(false);
-    const scrolling = computed(() => globalStore.getScrolling);
 
     const gotoPage = (val: string) => {
       curTab.value = val;
@@ -96,7 +93,6 @@ export default defineComponent({
       logo,
       curTab,
       openMenu,
-      scrolling,
       gotoPage,
     };
   },
@@ -218,14 +214,5 @@ export default defineComponent({
       }
     }
   }
-}
-.loading {
-  z-index: 9999;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 </style>

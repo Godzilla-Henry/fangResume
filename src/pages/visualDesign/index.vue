@@ -64,8 +64,6 @@
               .row.items-center.describe
                 .tag.q-mr-lg {{ item.tag }}
                 .title {{ item.title }}
-      
-slider(:isOpen="isOpen" :subImg="curPicture" @handleOpen="handleOpen")
 </template>
 
 <script lang="ts">
@@ -130,6 +128,7 @@ import subImg19_1 from 'src/assets/fangImg/visualDesign/subImg/subImg19_1.png';
 import subImg19_2 from 'src/assets/fangImg/visualDesign/subImg/subImg19_2.png';
 import subImg20_1 from 'src/assets/fangImg/visualDesign/subImg/subImg20_1.png';
 import subImg20_2 from 'src/assets/fangImg/visualDesign/subImg/subImg20_2.png';
+import eventBus from 'src/Utils/useEventBus';
 
 export default defineComponent({
   components: {
@@ -285,18 +284,11 @@ export default defineComponent({
       },
     ]);
 
-    //- Dialog
-    const isOpen = ref<boolean>(false);
     //- Cur Picture
     const curPicture = ref([]) as any;
     const openDialog = (item: any) => {
-      isOpen.value = true;
-      curPicture.value = [...item.subImg];
+      eventBus.emit('openSlider', item.subImg);
       document.body.style.overflow = 'hidden';
-    };
-    const handleOpen = (value: any) => {
-      isOpen.value = value;
-      document.body.style.overflow = 'auto';
     };
 
     return {
@@ -305,10 +297,8 @@ export default defineComponent({
       visualList,
       webList,
       appList,
-      isOpen,
       curPicture,
       openDialog,
-      handleOpen,
     };
   },
 });
