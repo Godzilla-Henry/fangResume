@@ -29,7 +29,7 @@
         ) Open Co-learning Community Online Learning Platform
         .window-subtitle July 2023
         .action 
-          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" )
+          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" @click="goto('open')")
       .small-window
         .window-title(
           @mouseover="windowTitleHover[0].value = true"
@@ -37,7 +37,7 @@
         ) Open Co-learning Community Online Learning Platform
         .window-subtitle July 2023
         .action 
-          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" )
+          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" @click="goto('open')")
     .card
       .window.w-postion02
         .window-title(
@@ -46,7 +46,7 @@
         ) Taichung City Building Line Information Website
         .window-subtitle Nov 2023
         .action 
-          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" )
+          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" @click="goto('redesign')")
       .thumbnail-frame.thumb-postion02
         q-img.thumbnail(
           :src="thumbnail02"
@@ -60,7 +60,7 @@
         )  Taichung City Building Line Information Website
         .window-subtitle Nov 2023
         .action 
-          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" )
+          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" @click="goto('redesign')")
     .card
       .thumbnail-frame
         q-img.thumbnail(
@@ -96,10 +96,12 @@ import circle from 'src/assets/fangImg/uiux/circle.png';
 import thumbnail01 from 'src/assets/fangImg/uiux/thumbnail01.png';
 import thumbnail02 from 'src/assets/fangImg/uiux/thumbnail02.png';
 import thumbnail03 from 'src/assets/fangImg/uiux/thumbnail03.png';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   setup() {
     const { width } = useWindowSize();
+    const router = useRouter();
 
     const imgUrl = ref();
 
@@ -112,6 +114,10 @@ export default defineComponent({
       () => width.value,
       (val: number) => reBannerSource(val)
     );
+
+    const goto = (path: string) => {
+      router.push({ name: path });
+    };
 
     const windowTitleHover = ref([
       { id: 0, value: false },
@@ -126,6 +132,7 @@ export default defineComponent({
       thumbnail02,
       thumbnail03,
       windowTitleHover,
+      goto,
     };
   },
 });

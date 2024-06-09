@@ -46,6 +46,16 @@ const routes: RouteRecordRaw[] = [
         path: '/afterHour/logo',
         component: () => import('pages/afterHour/logo/index.vue'),
       },
+      {
+        name: 'open',
+        path: '/uiux/open',
+        component: () => import('pages/uiux/openProject/index.vue'),
+      },
+      {
+        name: 'redesign',
+        path: '/uiux/redesign',
+        component: () => import('pages/uiux/taichungRedesign/index.vue'),
+      },
     ],
   },
 
