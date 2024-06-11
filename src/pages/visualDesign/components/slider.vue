@@ -1,6 +1,6 @@
 <template lang="pug">
 .dialog(v-if="isOpen")
-  .dialog-overlay
+  .dialog-overlay(@click.prevent.stop="close")
   .dialog-content
     q-btn.close-btn(unelevated round @click.prevent="close")
       q-icon(name="fas fa-close")

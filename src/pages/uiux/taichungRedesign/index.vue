@@ -7,7 +7,7 @@
     .banner-img(:style="{'background-position-y': 'calc(45% - ' + y * 0.1 + 'px' + ')'}")
   .section.content-padding.table(style="margin-top: 64px;")
     .table-label Project details
-    .table-content
+    .table-content.desktop
       table
         thead
           tr 
@@ -22,6 +22,33 @@
               p UI Design 
               p Code
             td(valign="top")  me
+            td(valign="top")  
+              p Design：Oct 2023 - Nov 2023 (20days) 
+              p Code：Jan 2024 - Feb 2024 (30days)
+            td(valign="top") 
+              p Figma 
+              p Illustration 
+              p HTML, CSS, jQuery UI
+    .table-content.mobile
+      table
+        thead
+          tr 
+            th My Roles
+            th Team
+        tbody
+          tr 
+            td(valign="top") 
+              p Responsive Web Design 
+              p UI Design 
+              p Code
+            td(valign="top")  me
+      table
+        thead
+          tr 
+            th Duration
+            th Tool
+        tbody
+          tr 
             td(valign="top")  
               p Design：Oct 2023 - Nov 2023 (20days) 
               p Code：Jan 2024 - Feb 2024 (30days)
@@ -46,7 +73,7 @@
   .section.content-padding
     .page-img01
       q-img(:src="redesign02")
-    .row.justify-between(style="margin-top: 120px; margin-bottom: 120px;")
+    .split-img(style="margin-top: 120px; margin-bottom: 120px;")
       .page-img02
         q-img(:src="redesign03")
       .page-img03
@@ -132,6 +159,18 @@ export default defineComponent({
     font-weight: 700;
   }
   .table-content {
+    &.desktop {
+      display: none;
+      @include rwd.large {
+        display: block;
+      }
+    }
+    &.mobile {
+      display: block;
+      @include rwd.large {
+        display: none;
+      }
+    }
     table {
       border-collapse: collapse;
       width: 100%;
@@ -198,12 +237,24 @@ export default defineComponent({
     }
   }
 }
-.page-img02 {
-  width: 687px;
-  height: 522px;
-}
-.page-img03 {
-  width: 425px;
-  height: 522px;
+.split-img {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  .page-img02 {
+    width: 100%;
+    @include rwd.large {
+      width: 687px;
+      height: 522px;
+    }
+  }
+  .page-img03 {
+    width: 100%;
+    @include rwd.large {
+      width: 425px;
+      height: 522px;
+    }
+  }
 }
 </style>

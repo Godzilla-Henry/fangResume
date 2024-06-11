@@ -7,7 +7,7 @@
     .banner-img(:style="{'background-position-y': 'calc(45% - ' + y * 0.1 + 'px' + ')'}")
   .section.content-padding.table(style="margin-top: 64px;")
     .table-label Project details
-    .table-content
+    .table-content.desktop
       table
         thead
           tr 
@@ -25,7 +25,42 @@
               p Mock Up 
               p Illustration
             td(valign="top")  
+              p Jing, Mou, Amy ,
+                br 
+                |Mina ,Stoos, me
+            td(valign="top")  
+              p July 2023 - Aug 2023 
+                br 
+                |(2 Weeks)
+            td(valign="top") 
+              p Figma 
+              p Illustration 
+              p Notion 
+              p Discord
+    .table-content.mobile
+      table
+        thead
+          tr 
+            th My Roles
+            th Team
+        tbody
+          tr 
+            td(valign="top") 
+              p Brand identity 
+              p Visual Design 
+              p UI Design 
+              p Design system 
+              p Mock Up 
+              p Illustration
+            td(valign="top")  
               p Jing, Mou, Amy ,Mina ,Stoos, me
+      table
+        thead
+          tr
+            th Duration
+            th Tool
+        tbody
+          tr
             td(valign="top")  
               p July 2023 - Aug 2023 (2 Weeks)
             td(valign="top") 
@@ -273,6 +308,18 @@ export default defineComponent({
     font-weight: 700;
   }
   .table-content {
+    &.desktop {
+      display: none;
+      @include rwd.large {
+        display: block;
+      }
+    }
+    &.mobile {
+      display: block;
+      @include rwd.large {
+        display: none;
+      }
+    }
     table {
       border-collapse: collapse;
       width: 100%;

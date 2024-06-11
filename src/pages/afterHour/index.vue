@@ -21,7 +21,7 @@
             .card-hover-info
                 span {{ item.tag}}
           .row.items-center.q-mt-md.describe
-            .tag.q-mr-lg {{ item.tag }}
+            .tag(style="margin-right: 8px;") {{ item.tag }}
             .title {{ item.title }}
           
 </template>
@@ -119,6 +119,9 @@ export default defineComponent({
       position: relative;
       border-radius: 32px;
       overflow: hidden;
+      &:hover {
+        cursor: pointer;
+      }
       &:hover .card-img {
         transform: scale(1.1, 1.1);
       }
