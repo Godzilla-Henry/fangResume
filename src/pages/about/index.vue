@@ -18,12 +18,14 @@
           p 為提升自身實力，透過自學及side project的方式培養獨立思辨，在職同時，加入UI實戰營課程，以直播互動課程、作業及小組專題，不斷吸收業界新知與實戰技能，持續學習並接受挑戰。我期待將各種知識與經驗相互融合，實現並創造更有影響力的作品，為社會注入更多正面與美好的力量。
           p 在興趣方面，我喜歡文創手作、旅行，並對觀察生活細節充滿好奇心，享受從不同領域的新知中獲取靈感，期待以此為催化劑，帶來更多積極而有益的改變。
           .email
-            q-icon.q-mx-sm(name="far fa-envelope" color="#585858") 
-            | xlingfun@gmail.com
-            q-img.behance-logo(
-              :src="behance_logo"
-              spinner-color="#6D6D6D"
-            )
+            .left
+              q-icon.q-mr-sm(name="far fa-envelope" color="#585858") 
+              span.q-mr-lg xlingfun@gmail.com
+              svg(xmlns="http://www.w3.org/2000/svg" width="21" height="13" viewBox="0 0 21 13" fill="none")
+                path(d="M18.07 0.824158H13V2.23416H18.09L18.07 0.824158ZM17 10.5242C16.6154 10.779 16.1612 10.9083 15.7 10.8942C15.3947 10.926 15.0862 10.8945 14.7937 10.8015C14.5011 10.7086 14.2309 10.5563 14 10.3542C13.573 9.87004 13.3507 9.23901 13.38 8.59416H20C20.0477 7.92271 19.9904 7.24792 19.83 6.59416C19.6749 5.97218 19.4034 5.38519 19.03 4.86416C18.6541 4.35876 18.1686 3.94508 17.61 3.65416C16.9884 3.3477 16.3029 3.19345 15.61 3.20416C14.9583 3.19939 14.3123 3.32519 13.71 3.57416C13.1585 3.80665 12.6588 4.14659 12.24 4.57416C11.8224 5.01027 11.499 5.52767 11.29 6.09416C11.0657 6.70571 10.9539 7.3528 10.96 8.00416C10.9497 8.66476 11.0581 9.32185 11.28 9.94416C11.4685 10.5077 11.7677 11.0279 12.16 11.4742C12.5659 11.9123 13.0648 12.254 13.62 12.4742C14.2391 12.71 14.8976 12.8254 15.56 12.8142C16.4894 12.8431 17.407 12.5998 18.2 12.1142C19.0009 11.545 19.5775 10.7137 19.83 9.76416H17.62C17.5017 10.0783 17.284 10.3452 17 10.5242ZM13.57 6.40416C13.6478 6.15484 13.777 5.92459 13.9493 5.72824C14.1215 5.5319 14.3329 5.37381 14.57 5.26416C14.884 5.12284 15.2258 5.05447 15.57 5.06416C15.8186 5.04292 16.0689 5.07572 16.3036 5.1603C16.5384 5.24488 16.7521 5.37924 16.93 5.55416C17.2698 5.97009 17.4878 6.47195 17.56 7.00416H13.41C13.4262 6.80094 13.463 6.5999 13.52 6.40416H13.57ZM8.28 5.92416C8.78896 5.71222 9.23121 5.36671 9.56 4.92416C9.86222 4.45416 10.0124 3.90249 9.99 3.34416C10.0096 2.835 9.91031 2.32827 9.7 1.86416C9.52331 1.46207 9.23968 1.11618 8.88 0.864158C8.49865 0.602131 8.06561 0.424821 7.61 0.344158C7.07082 0.231071 6.52087 0.177418 5.97 0.184158H0V12.7642H6.1C6.65669 12.7646 7.21116 12.694 7.75 12.5542C8.26075 12.422 8.74462 12.2021 9.18 11.9042C9.60174 11.6119 9.94515 11.2204 10.18 10.7642C10.4399 10.2539 10.5672 9.6865 10.55 9.11416C10.5689 8.4049 10.37 7.70687 9.98 7.11416C9.56059 6.51808 8.93852 6.09508 8.23 5.92416H8.28ZM2.77 2.33416H5.36C5.59795 2.33386 5.83548 2.35394 6.07 2.39416C6.28595 2.42616 6.49334 2.50096 6.68 2.61416C6.86035 2.71617 7.00648 2.86926 7.1 3.05416C7.21582 3.27588 7.27102 3.52425 7.26 3.77416C7.27863 3.9894 7.24572 4.20598 7.16399 4.40596C7.08225 4.60595 6.95405 4.78358 6.79 4.92416C6.43212 5.17019 6.00388 5.29305 5.57 5.27416H2.77V2.33416ZM7.61 9.77416C7.50726 9.97796 7.35189 10.1506 7.16 10.2742C6.9603 10.3984 6.74027 10.4864 6.51 10.5342C6.25406 10.5914 5.99224 10.6183 5.73 10.6142H2.73V7.16416H5.73C6.24482 7.14161 6.75322 7.28537 7.18 7.57416C7.37281 7.74719 7.52217 7.96319 7.61599 8.20467C7.7098 8.44616 7.74543 8.70634 7.72 8.96416C7.74704 9.23904 7.70936 9.51644 7.61 9.77416Z" fill="#585858")
+            .right
+              .resume
+                a(href="https://drive.google.com/file/d/17ZPPhCHX5X-Y2bsg01KZSodt55sH6ARI/view?usp=drive_link" target="_blank") Resume
     .banner-divider
       q-img.img(
         :src="line"
@@ -242,9 +244,10 @@ export default defineComponent({
   position: relative;
 }
 .banner-container {
+  position: relative;
+  z-index: 2;
   flex-direction: row;
   justify-content: center;
-  position: relative;
   margin-top: calc(100vw * (80 / 1440));
   @include rwd.large {
     flex-direction: row-reverse;
@@ -280,28 +283,46 @@ export default defineComponent({
       .subtitle {
         color: #1b1b1b;
         font-size: 16px;
-        font-weight: 300;
+        font-weight: 400;
         padding: 10px 0px;
         border-bottom: 1px solid #1b1b1b;
       }
       p {
         color: #585858;
         font-size: 16px;
-        font-weight: 300;
+        font-weight: 400;
         margin-top: 16px;
       }
       .email {
         display: flex;
-        justify-content: end;
+        justify-content: space-between;
         align-items: center;
         margin-top: 48px;
         color: #585858;
-        font-family: 'SF Pro Text';
         font-size: 16px;
         font-weight: 500;
-        .behance-logo {
-          width: 20px;
-          margin-left: 24px;
+        .left {
+          width: 250px;
+          display: flex;
+          align-items: center;
+        }
+        .right {
+          width: 100px;
+          height: 36px;
+          .resume {
+            width: 100px;
+            border-radius: 50px;
+            border: 1px solid #d2d2d2;
+            padding: 4px 20px;
+            &:hover {
+              color: #000;
+              cursor: pointer;
+            }
+            a {
+              color: #585858;
+              text-decoration: none;
+            }
+          }
         }
       }
     }
@@ -309,13 +330,17 @@ export default defineComponent({
   .right {
     width: 604px;
     height: 678px;
+    .img {
+      position: relative;
+      z-index: 10;
+    }
   }
 }
 .banner-divider {
+  z-index: 1;
   width: 100%;
   position: absolute;
   bottom: -40px;
-  z-index: 1;
 }
 .read-more {
   width: 225px;
@@ -395,7 +420,7 @@ export default defineComponent({
     .card-text {
       color: #535353;
       font-size: 14px;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 18px; /* 128.571% */
       letter-spacing: 0.81px;
       margin-top: 10px;
@@ -445,6 +470,12 @@ export default defineComponent({
       line-height: 200%; /* 25.6px */
       a {
         text-decoration: none;
+      }
+      a:link {
+        color: #4473cd;
+      }
+      a:visited {
+        color: rgba(64, 72, 86, 0.1);
       }
       &.case {
         list-style: none;

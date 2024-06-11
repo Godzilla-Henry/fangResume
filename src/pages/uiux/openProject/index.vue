@@ -95,7 +95,7 @@
     .section-tag Problem Statement 問題描述
     .section-img  
       q-img(:src="open04")
-  .section(style="margin-top: 16px;")
+  .section(style="margin-top: 80px;")
     .short-banner   
       .title HWM (How might we)
       .subtitle 我們如何幫助使用者快速找到適合的課程，並且能夠快速瀏覽已購買的課程及上課進度？

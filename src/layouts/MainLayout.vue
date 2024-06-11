@@ -4,7 +4,9 @@ q-layout(view="lHh Lpr lff")
     q-toolbar.fit.text-black.page
       .fit.section.content-padding
         .fit.row.items-center.justify-between
-          img.logo(:src="logo")
+          q-btn(@click="gotoPage('uiux')" flat round)
+            q-avatar(size="47px")
+              img(:src="logo")
           q-tabs.headerBarTabs(
             v-model="curTab"
             shrink no-caps
@@ -17,7 +19,9 @@ q-layout(view="lHh Lpr lff")
   q-page-container
     .wrapper(:class="{'active': openMenu}")
       .wrapper_header.row.items-center.justify-between
-        img(:src="logo" height="47px")
+        q-btn(@click="gotoPage('uiux')" flat round)
+          q-avatar(size="47px")
+            img(:src="logo")
         q-btn(icon="fa fa-xmark" flat @click="openMenu = !openMenu")
       .wrapper_content
         .menu_item(@click="gotoPage('uiux')") UI/UX

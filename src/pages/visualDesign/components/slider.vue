@@ -10,6 +10,7 @@
           q-img(
             :src="imgPlaying"
             fit="contain"
+            style="height: 100%;"
             :ratio="1"
           )
         .right 
@@ -18,6 +19,7 @@
             round :outline="width > 600"
             size="md"
             @click="change(1)"
+            v-if="imgList.length >= 2"
           )
         .left
           q-btn(
@@ -25,6 +27,7 @@
             round :outline="width > 600"
             size="md"
             @click="change(-1)"
+            v-if="imgList.length >= 2"
           )
 
       .img-list(v-if="height > 800")
@@ -118,15 +121,15 @@ export default defineComponent({
   }
   //- 彈窗主體
   .dialog-content {
-    position: absolute;
     width: 80vw;
     height: 90vh;
-    padding: 74px calc(32px + 100vw * (153 / 1440));
+    position: absolute;
     border-radius: 12px;
     z-index: 9999;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 74px calc(32px + 100vw * (153 / 1440));
     background-color: #fff;
     .close-btn {
       position: absolute;
@@ -145,14 +148,17 @@ export default defineComponent({
     //- 正在播放
     .playing-container {
       width: 100%;
-      height: 70%;
+      height: 100%;
+      max-height: 500px;
       display: flex;
       justify-content: center;
       align-items: center;
       position: relative;
       .img-playing {
         width: 100%;
-        max-width: 600px;
+        max-width: 666px;
+        height: 100%;
+        max-height: 500px;
       }
       .right {
         position: absolute;
@@ -160,11 +166,11 @@ export default defineComponent({
         color: #949494;
         @include rwd.medium {
           right: -70px;
-          color: black;
+          color: #949494;
         }
         @include rwd.small {
           right: 10px;
-          color: black;
+          color: #949494;
         }
       }
       .left {
@@ -173,18 +179,18 @@ export default defineComponent({
         color: #949494;
         @include rwd.medium {
           left: -70px;
-          color: black;
+          color: #949494;
         }
         @include rwd.small {
           left: 10px;
-          color: black;
+          color: #949494;
         }
       }
     }
     //- 播放列表
     .img-list {
       width: 100%;
-      height: 30%;
+      height: 100px;
       display: flex;
       justify-content: center;
       align-items: center;

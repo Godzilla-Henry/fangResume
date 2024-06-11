@@ -16,51 +16,55 @@
     )
   .section.column.content-padding.last-section
     .card
-      .thumbnail-frame
+      .thumbnail-frame(@click="goto('open')")
         q-img.thumbnail(
           :src="thumbnail01"
           spinner-color="#6D6D6D"
           :class="{'thumbnail-scale': windowTitleHover[0].value}"
         )
-      .window.w-postion01
-        .window-title(
-          @mouseover="windowTitleHover[0].value = true"
-          @mouseleave="windowTitleHover[0].value = false"
-        ) Open Co-learning Community Online Learning Platform
+      .window.w-postion01(
+        @mouseover="windowTitleHover[0].value = true"
+        @mouseleave="windowTitleHover[0].value = false"
+        @click="goto('open')"
+      )
+        .window-title Open Co-learning Community Online Learning Platform
         .window-subtitle July 2023
         .action 
-          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" @click="goto('open')")
-      .small-window
-        .window-title(
-          @mouseover="windowTitleHover[0].value = true"
-          @mouseleave="windowTitleHover[0].value = false"
-        ) Open Co-learning Community Online Learning Platform
+          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More")
+      .small-window(
+        @mouseover="windowTitleHover[0].value = true"
+        @mouseleave="windowTitleHover[0].value = false"
+        @click="goto('open')"
+      )
+        .window-title Open Co-learning Community Online Learning Platform
         .window-subtitle July 2023
         .action 
-          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" @click="goto('open')")
+          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More")
     .card
-      .window.w-postion02
-        .window-title(
+      .window.w-postion02(
           @mouseover="windowTitleHover[1].value = true"
           @mouseleave="windowTitleHover[1].value = false"
-        ) Taichung City Building Line Information Website
+          @click="goto('redesign')"
+        )
+        .window-title Taichung City Building Line Information Website
         .window-subtitle Nov 2023
         .action 
-          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" @click="goto('redesign')")
-      .thumbnail-frame.thumb-postion02
+          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More")
+      .thumbnail-frame.thumb-postion02(@click="goto('redesign')")
         q-img.thumbnail(
           :src="thumbnail02"
           spinner-color="#6D6D6D"
           :class="{'thumbnail-scale': windowTitleHover[1].value}"
         )
-      .small-window
-        .window-title(
-          @mouseover="windowTitleHover[1].value = true"
-          @mouseleave="windowTitleHover[1].value = false"
-        )  Taichung City Building Line Information Website
+      .small-window(
+        @mouseover="windowTitleHover[1].value = true"
+        @mouseleave="windowTitleHover[1].value = false"
+        @click="goto('redesign')"
+      )
+        .window-title  Taichung City Building Line Information Website
         .window-subtitle Nov 2023
         .action 
-          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" @click="goto('redesign')")
+          q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More")
     .card
       .thumbnail-frame
         q-img.thumbnail(
@@ -68,19 +72,19 @@
           spinner-color="#6D6D6D"
           :class="{'thumbnail-scale': windowTitleHover[2].value}"
         )
-      .window.w-postion01
-        .window-title(
-          @mouseover="windowTitleHover[2].value = true"
-          @mouseleave="windowTitleHover[2].value = false"
-        )  Website For Road Patrol Management System
+      .window.w-postion01(
+        @mouseover="windowTitleHover[2].value = true"
+        @mouseleave="windowTitleHover[2].value = false"
+      )
+        .window-title Website For Road Patrol Management System
         .window-subtitle Dec 2023
         .action 
           q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" )
-      .small-window
-        .window-title(
-          @mouseover="windowTitleHover[2].value = true"
-          @mouseleave="windowTitleHover[2].value = false"
-        )  Website For Road Patrol Management System
+      .small-window(
+        @mouseover="windowTitleHover[2].value = true"
+        @mouseleave="windowTitleHover[2].value = false"
+      ) 
+        .window-title Website For Road Patrol Management System
         .window-subtitle Dec 2023
         .action 
           q-btn.q-px-xl.q-py-sm(outline rounded color="#666" label="More" )
@@ -233,6 +237,7 @@ export default defineComponent({
       transition: all 0.5s ease-out;
       &:hover {
         transform: scale(1.2, 1.2);
+        cursor: pointer;
       }
     }
   }
@@ -244,6 +249,9 @@ export default defineComponent({
     background: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(44.5px);
     padding: 24px;
+    &:hover {
+      cursor: pointer;
+    }
     @include rwd.medium {
       padding: calc(12px + 100vw * (12 / 1440));
     }
@@ -320,6 +328,9 @@ export default defineComponent({
     backdrop-filter: blur(44.5px);
     padding: 24px;
     margin-top: 30px;
+    &:hover {
+      cursor: pointer;
+    }
     @include rwd.sm {
       display: block;
     }
@@ -330,6 +341,9 @@ export default defineComponent({
       color: #666;
       font-size: calc(16px + 100vw * (12 / 1440));
       font-weight: 400;
+      &:hover {
+        color: rgb(163, 163, 163);
+      }
       @include rwd.xs {
         font-size: 16px;
       }

@@ -141,7 +141,7 @@ export default defineComponent({
         text-align: left;
       }
       th {
-        color: #000;
+        color: #928670;
         font-size: 18px;
         font-weight: 700;
         border-bottom: 1px solid #000000;

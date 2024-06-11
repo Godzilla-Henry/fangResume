@@ -28,7 +28,7 @@
                 .card-hover-info
                   span {{ item.hoverText }}
               .row.items-center.describe
-                .tag.q-mr-lg {{ item.tag }}
+                .tag(style="margin-right: 8px;") {{ item.tag }}
                 .title {{ item.title }}
       q-tab-panel(name="App")
         .row.q-col-gutter-xl.card-list
@@ -45,7 +45,7 @@
                 .card-hover-info
                   span {{ item.hoverText }}
               .row.items-center.describe
-                .tag.q-mr-lg {{ item.tag }}
+                .tag(style="margin-right: 8px;")  {{ item.tag }}
                 .title {{ item.title }}
       q-tab-panel(name="Visual")
         .row.q-col-gutter-xl.card-list
@@ -62,7 +62,7 @@
                 .card-hover-info
                   span {{ item.hoverText }}
               .row.items-center.describe
-                .tag.q-mr-lg {{ item.tag }}
+                .tag(style="margin-right: 8px;")  {{ item.tag }}
                 .title {{ item.title }}
 </template>
 
@@ -111,6 +111,7 @@ import subImg08_1 from 'src/assets/fangImg/visualDesign/subImg/subImg08_1.png';
 import subImg09_1 from 'src/assets/fangImg/visualDesign/subImg/subImg09_1.png';
 import subImg10_1 from 'src/assets/fangImg/visualDesign/subImg/subImg10_1.png';
 import subImg10_2 from 'src/assets/fangImg/visualDesign/subImg/subImg10_2.png';
+import subImg10_3 from 'src/assets/fangImg/visualDesign/subImg/subImg10_3.png';
 import subImg11_1 from 'src/assets/fangImg/visualDesign/subImg/subImg11_1.png';
 import subImg11_2 from 'src/assets/fangImg/visualDesign/subImg/subImg11_2.png';
 import subImg11_3 from 'src/assets/fangImg/visualDesign/subImg/subImg11_3.png';
@@ -124,6 +125,7 @@ import subImg16_1 from 'src/assets/fangImg/visualDesign/subImg/subImg16_1.png';
 import subImg16_2 from 'src/assets/fangImg/visualDesign/subImg/subImg16_2.png';
 import subImg17_1 from 'src/assets/fangImg/visualDesign/subImg/subImg17_1.png';
 import subImg18_1 from 'src/assets/fangImg/visualDesign/subImg/subImg18_1.png';
+import subImg18_2 from 'src/assets/fangImg/visualDesign/subImg/subImg18_2.png';
 import subImg19_1 from 'src/assets/fangImg/visualDesign/subImg/subImg19_1.png';
 import subImg19_2 from 'src/assets/fangImg/visualDesign/subImg/subImg19_2.png';
 import subImg20_1 from 'src/assets/fangImg/visualDesign/subImg/subImg20_1.png';
@@ -208,7 +210,7 @@ export default defineComponent({
         title: '台中都市計畫審議服務網',
         tag: 'WEB DESIGN',
         hoverText: 'WEB DESIGN',
-        subImg: [subImg10_1, subImg10_2],
+        subImg: [subImg10_1, subImg10_2, subImg10_3],
       },
       {
         img: cardImg11,
@@ -264,7 +266,7 @@ export default defineComponent({
         title: '台中建築線指示(定)案件查詢系統',
         tag: 'WEB DESIGN',
         hoverText: 'WEB DESIGN',
-        subImg: [subImg18_1],
+        subImg: [subImg18_2, subImg18_1],
       },
     ]);
     const appList = ref([
