@@ -108,7 +108,7 @@ export default defineComponent({
 .smooth-scroll {
   position: relative;
   transition: all ease-in-out;
-  transform-style: preserve-3d;
+  // transform-style: preserve-3d;
 }
 .headerBar {
   background-color: rgba(255, 255, 255, 0.25);
