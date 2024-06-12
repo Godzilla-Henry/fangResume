@@ -244,10 +244,11 @@ export default defineComponent({
   .window {
     width: calc(32.5% + 80px);
     position: absolute;
-    border-radius: 16px;
+    border-radius: 32px;
     border: 1px solid #666;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(44.5px);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 24px;
     &:hover {
       cursor: pointer;
@@ -324,8 +325,9 @@ export default defineComponent({
     width: 100%;
     border-radius: 16px;
     border: 1px solid #666;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(44.5px);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 24px;
     margin-top: 30px;
     &:hover {
